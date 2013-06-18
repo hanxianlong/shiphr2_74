@@ -3,7 +3,7 @@ error_reporting(E_ERROR);
  
 $srcdbhost=trim($_POST['srcdbhost']);
 if (empty($srcdbhost)) showmsg('请填写ShipHrMYSQL服务器地址!');
-$fsrcdbuser=trim($_POST['srcdbuser']);
+$srcdbuser=trim($_POST['srcdbuser']);
 if (empty($srcdbuser)) showmsg('请填写ShipHrMYSQL用户名');
 $srcdbpass=trim($_POST['srcdbpass']);
 if (empty($srcdbpass)) showmsg('请填写ShipHrMYSQL密码');

@@ -4,7 +4,9 @@ error_reporting(E_ERROR);
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
 	$i=0;
-	$sql="select * from `{$srcpre}member` where m_typeid=2";
+        //公司会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
+	//$sql="select * from `{$srcpre}member` where m_typeid=2";
+        $sql="select * from `{$srcpre}company`";// where m_typeid=2";
 	$result = $dbsrc->query($sql);
 	while($row = $dbsrc->fetch_array($result))
 	{

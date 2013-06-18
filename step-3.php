@@ -31,6 +31,17 @@ function conversion(n)
 	var qsdbname="<?php echo  $cf[9]?>";
 	var qspre="<?php echo  $cf[10]?>";
 	var url;
+        if(n==0){
+            url="conversion_user_company.php";
+        }
+        else{
+            url="";
+            $(".success").show();
+            alert("×ª»»Íê³É");
+            return false;
+        }
+        
+        
 	if (n==0)
 	{
 	url="conversion_user_company.php";

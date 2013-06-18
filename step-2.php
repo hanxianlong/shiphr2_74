@@ -21,7 +21,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
 
 <div class="set">
 <fieldset>
-    <legend>ShipHr配置信息</legend>
+    <legend>Shiphr配置信息</legend>
   <table width="100%" border="0" cellpadding="0" cellspacing="5" style="margin-top:15px; margin-bottom:20px; ">
   <tr>
     <td width="100" align="right">MYSQL服务器：</td>
@@ -42,12 +42,12 @@ require_once(dirname(__FILE__).'/inc/top.php');
 	<tr>
     <td width="100" align="right">数据库名：</td>
     <td>
-      <input type="text" name="srcdbname" class="text_200" id="srcdbname" /> </td>
+      <input type="text" name="srcdbname" class="text_200" value="shiphr" id="srcdbname" /> </td>
     </tr>
 	<tr>
     <td width="100" align="right">数据库表前缀：</td>
     <td>
-      <input type="text" name="srcpre" class="text_200"  id="srcpre"/> </td>
+      <input type="text" name="srcpre" class="text_200" value="uchome_"  id="srcpre"/> </td>
     </tr>
 	<tr>
     <td width="100" align="right">数据库字符集：</td>

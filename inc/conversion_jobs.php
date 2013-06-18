@@ -97,7 +97,7 @@ $sp = new SPWord();
 				$setsqlarr_contact['email']=$userinfo['email'];
 				$setsqlarr_contact['notify']=0;
 				
-                                LOCK_EX
+                              //  LOCK_EX
 				//$n=var_export($setsqlarr,true);
 				//file_put_contents("../1.txt",$n, LOCK_EX);
 				//exit();
