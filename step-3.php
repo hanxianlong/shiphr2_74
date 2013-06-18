@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>嘉缘人才系统V3.0转骑士人才系统V3.2</title>
+<title>ShipHr转74cms</title>
 <link href="css/com.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -19,12 +19,12 @@ $cf=explode('--|--',$getconfig);
 ?>
 function conversion(n)
 {
-	var frdbhost="<?php echo  $cf[0]?>";
-	var frdbuser="<?php echo  $cf[1]?>";
-	var frdbpass="<?php echo  $cf[2]?>";
-	var frdbname="<?php echo  $cf[3]?>";
-	var frpre="<?php echo  $cf[4]?>";
-	var frdbcharset="<?php echo  $cf[5]?>";
+	var srcdbhost="<?php echo  $cf[0]?>";
+	var srcdbuser="<?php echo  $cf[1]?>";
+	var srcdbpass="<?php echo  $cf[2]?>";
+	var srcdbname="<?php echo  $cf[3]?>";
+	var srcpre="<?php echo  $cf[4]?>";
+	var srcdbcharset="<?php echo  $cf[5]?>";
 	var qsdbhost="<?php echo  $cf[6]?>";
 	var qsdbuser="<?php echo  $cf[7]?>";
 	var qsdbpass="<?php echo  $cf[8]?>";
@@ -65,23 +65,23 @@ function conversion(n)
 	$(".wait span").eq(n).html('正在转换,请等待...').css('color','#FF0000');
 	$(".wait li").eq(n).css('background-position','0px -16px').css('color','#000000');
 	var tsTimeStamp= new Date().getTime();
-	$.get("inc/"+url, {"time":tsTimeStamp,"frdbhost":frdbhost,"frdbuser":frdbuser,"frdbpass":frdbpass,"frdbname":frdbname,"frpre":frpre,"frdbcharset":frdbcharset,"qsdbhost":qsdbhost,"qsdbuser":qsdbuser,"qsdbpass":qsdbpass,"qsdbname":qsdbname,"qspre":qspre},
+	$.get("inc/"+url, {"time":tsTimeStamp,"srcdbhost":srcdbhost,"srcdbuser":srcdbuser,"srcdbpass":srcdbpass,"srcdbname":srcdbname,"srcpre":srcpre,"srcdbcharset":srcdbcharset,"qsdbhost":qsdbhost,"qsdbuser":qsdbuser,"qsdbpass":qsdbpass,"qsdbname":qsdbname,"qspre":qspre},
 					function (data,textStatus)
 					{	
 						var info=data.split(",");
 						if (info[0]=='ok')
 						{
-						$(".wait span").eq(n).html('转换完成,成功转换'+info[1]+'行数据').css('color','#009900');
-						$(".wait li").eq(n).css('background-position','0px -39px').css('color','#000000');
-						n=n+1;
-						conversion(n);
+                                                    $(".wait span").eq(n).html('转换完成,成功转换'+info[1]+'行数据').css('color','#009900');
+                                                    $(".wait li").eq(n).css('background-position','0px -39px').css('color','#000000');
+                                                    n=n+1;
+                                                    conversion(n);
 						}
 						else
 						{
-							alert('转换过程发生错误,系统已经停止转换，请到论坛求助，错误:'+data);
+							alert('转换过程发生错误,系统已经停止转换,请记录此错误:'+data);
 						}
 					}
-				);	
+				);
 }
 });
 </script>

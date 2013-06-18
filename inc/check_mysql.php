@@ -1,24 +1,24 @@
 <?php
 error_reporting(E_ERROR);
 //嘉缘
-$frdbhost=trim($_POST['frdbhost']);
-if (empty($frdbhost)) showmsg('请填写嘉缘人才系统MYSQL服务器地址!');
-$frdbuser=trim($_POST['frdbuser']);
-if (empty($frdbuser)) showmsg('请填写嘉缘人才系统MYSQL用户名');
-$frdbpass=trim($_POST['frdbpass']);
-if (empty($frdbpass)) showmsg('请填写嘉缘人才系统MYSQL密码');
-$frdbname=trim($_POST['frdbname']);
-if (empty($frdbname)) showmsg('请填写嘉缘人才系统数据库名称');
-$frpre=trim($_POST['frpre']);
-if (empty($frpre)) showmsg('请填写嘉缘人才系统数表前缀');
-if(!$frdb = @mysql_connect($frdbhost, $frdbuser, $frdbpass))
+$srcdbhost=trim($_POST['srcdbhost']);
+if (empty($srcdbhost)) showmsg('请填写ShipHrMYSQL服务器地址!');
+$fsrcdbuser=trim($_POST['srcdbuser']);
+if (empty($srcdbuser)) showmsg('请填写ShipHrMYSQL用户名');
+$srcdbpass=trim($_POST['srcdbpass']);
+if (empty($srcdbpass)) showmsg('请填写ShipHrMYSQL密码');
+$srcdbname=trim($_POST['srcdbname']);
+if (empty($srcdbname)) showmsg('请填写ShipHr数据库名称');
+$srcpre=trim($_POST['srcpre']);
+if (empty($srcpre)) showmsg('请填写ShipHr数表前缀');
+if(!$srcdb = @mysql_connect($srcdbhost, $srcdbuser, $srcdbpass))
 {
-showmsg('嘉缘人才系统连接数据库错误，请核对填写的信息是否正确');
+showmsg('ShipHr连接数据库错误，请核对填写的信息是否正确');
 }
-@mysql_select_db($frdbname) || showmsg("嘉缘人才系统数据库 {$frdbname} 不存在！");
-$res = @mysql_query("SHOW TABLES LIKE '{$frpre}ad'");
+@mysql_select_db($srcdbname) || showmsg("ShipHr数据库 {$srcdbname} 不存在！");
+$res = @mysql_query("SHOW TABLES LIKE '{$srcpre}space'");
 $row_res = @mysql_fetch_array($res);
-if (empty($row_res[0])) showmsg("嘉缘人才系统表前缀 {$frpre} 错误！");
+if (empty($row_res[0])) showmsg("ShipHr表前缀 {$srcpre} 错误！");
 //骑士
 $qsdbhost=trim($_POST['qsdbhost']);
 if (empty($qsdbhost)) showmsg('请填写骑士人才系统MYSQL服务器地址!');
@@ -38,7 +38,7 @@ showmsg('骑士人才系统连接数据库错误，请核对填写的信息是否正确');
 $res = @mysql_query("SHOW TABLES LIKE '{$qspre}ad'");
 $row_res = @mysql_fetch_array($res);
 if (empty($row_res[0])) showmsg("骑士人才系统表前缀 {$qspre} 错误！");
-$url="{$frdbhost}--|--{$frdbuser}--|--{$frdbpass}--|--{$frdbname}--|--{$frpre}--|--{$_POST['frdbcharset']}--|--{$qsdbhost}--|--{$qsdbuser}--|--{$qsdbpass}--|--{$qsdbname}--|--{$qspre}";
+$url="{$srcdbhost}--|--{$srcdbuser}--|--{$srcdbpass}--|--{$srcdbname}--|--{$srcpre}--|--{$_POST['srcdbcharset']}--|--{$qsdbhost}--|--{$qsdbuser}--|--{$qsdbpass}--|--{$qsdbname}--|--{$qspre}";
 header("Location:../step-3.php?set={$url}");
 function showmsg($str){
 $html='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

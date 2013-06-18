@@ -4,9 +4,9 @@ error_reporting(E_ERROR);
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
 	$i=0;
-	$sql="select * from `{$frpre}links` WHERE l_key1='1'";
-	$result = $dbfr->query($sql);
-	while($row = $dbfr->fetch_array($result))
+	$sql="select * from `{$srcpre}links` WHERE l_key1='1'";
+	$result = $dbsrc->query($sql);
+	while($row = $dbsrc->fetch_array($result))
 	{
 				$setsqlarr['type_id']=1;
 				$setsqlarr['display']=1;

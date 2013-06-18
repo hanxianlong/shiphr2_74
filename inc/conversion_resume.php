@@ -6,9 +6,9 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 require_once(dirname(__FILE__).'/splitword.class.php');
 $sp = new SPWord();
 	$i=0;
-	$sql="select * from `{$frpre}resume` ";
-	$result = $dbfr->query($sql);
-	while($row = $dbfr->fetch_array($result))
+	$sql="select * from `{$srcpre}resume` ";
+	$result = $dbsrc->query($sql);
+	while($row = $dbsrc->fetch_array($result))
 	{
 				$userinfo=get_user_inusername($row['r_member']);
 				$setsqlarr['uid']=intval($userinfo['uid']);

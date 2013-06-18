@@ -1,5 +1,5 @@
 <div class="nav">
-<div class="tit"><h1>嘉缘人才系统V3.0 转 骑士人才系统V3.2</h1></div>
+<div class="tit"><h1>数据转换程序</h1></div>
 <div class="txt">
 	<ul>
 	<li class="s1 <?php echo $s1;?>">转换必读</li>

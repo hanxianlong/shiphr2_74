@@ -1,17 +1,17 @@
 <?php
 require_once(dirname(__FILE__).'/mysql.class.php');
-$frdbhost=trim($_GET['frdbhost']);
-$frdbuser=trim($_GET['frdbuser']);
-$frdbpass=trim($_GET['frdbpass']);
-$frdbname=trim($_GET['frdbname']);
-$frpre=trim($_GET['frpre']);
-$frdbcharset=trim($_GET['frdbcharset']);
+$srcdbhost=trim($_GET['srcdbhost']);
+$srcdbuser=trim($_GET['srcdbuser']);
+$srcdbpass=trim($_GET['srcdbpass']);
+$srcdbname=trim($_GET['srcdbname']);
+$srcpre=trim($_GET['srcpre']);
+$srcdbcharset=trim($_GET['srcdbcharset']);
 $qsdbhost=trim($_GET['qsdbhost']);
 $qsdbuser=trim($_GET['qsdbuser']);
 $qsdbpass=trim($_GET['qsdbpass']);
 $qsdbname=trim($_GET['qsdbname']);
 $qspre=trim($_GET['qspre']);
-$dbfr = new mysql($frdbhost,$frdbuser,$frdbpass,$frdbname);
+$dbsrc = new mysql($srcdbhost,$srcdbuser,$srcdbpass,$srcdbname);
 $db = new mysql($qsdbhost,$qsdbuser,$qsdbpass,$qsdbname);
 function table($table)
 {
@@ -20,8 +20,8 @@ function table($table)
 }
 function escape_str($str)
 {
-	global $frdbcharset;
-	if ($frdbcharset=='UTF8')
+	global $srcdbcharset;
+	if ($srcdbcharset=='UTF8')
 	{
 	$str=iconv("utf-8",'gbk//IGNORE',$str);
 	}
@@ -48,6 +48,9 @@ function conversion_inserttable($tablename, $insertsqlarr, $returnid=0, $replace
 	    return $state;
 	} 
 }
+
+/*注册新用户
+ */
 function conversion_register($username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile='')
 {
 	global $db,$QS_pwdhash;
@@ -92,12 +95,20 @@ function conversion_register($username,$password,$passwordtype=0,$member_type=0,
 			}
 return $insert_id;
 }
+
+/*
+ * 获取用户邮箱
+ */
 function get_user_inemail($email)
 {
 	global $db;
 	$email=escape_str($email);
 	return $db->getone("select * from ".table('members')." where email = '{$email}' LIMIT 1");
 }
+
+/*
+ * 判断当前用户名是否已经在members表中存在
+ */
 function get_user_inusername($username)
 {
 	global $db;
@@ -105,12 +116,27 @@ function get_user_inusername($username)
 	$sql = "select * from ".table('members')." where username = '{$username}' LIMIT 1";
 	return $db->getone($sql);
 }
+
+/**
+ * 
+ * @global mysql $db
+ * @param type $uid
+ * @return type
+ */
 function get_company($uid)
 {
 	global $db;
 	$sql = "select * from ".table('company_profile')." where uid='".intval($uid)."' LIMIT 1 ";
 	return $db->getone($sql);
 }
+
+/**
+ * 
+ * @param type $date
+ * @param type $format
+ * @param type $separator
+ * @return type
+ */
 function conversion_datefm($date,$format,$separator="-")
 {
 	 if ($format=="1")
@@ -406,6 +432,8 @@ function get_wage($str=NULL)
 		}
 	}
 }
+
+
 function conversion_add_resume_jobs($pid,$uid,$str)
 {
 	global $db;

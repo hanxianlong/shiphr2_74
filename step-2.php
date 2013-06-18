@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>嘉缘人才系统V3.0转骑士人才系统V3.2</title>
+<title>ShipHr转74cms/title>
 <link href="css/com.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -21,7 +21,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
 
 <div class="set">
 <fieldset>
-    <legend>嘉缘V3.0 配置信息</legend>
+    <legend>ShipHr配置信息</legend>
   <table width="100%" border="0" cellpadding="0" cellspacing="5" style="margin-top:15px; margin-bottom:20px; ">
   <tr>
     <td width="100" align="right">MYSQL服务器：</td>
@@ -66,9 +66,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
 
   </fieldset>
 </div>
-
-
-
+    
 <div class="set">
 <fieldset>
     <legend>骑士V3.2 配置信息</legend>
@@ -100,12 +98,9 @@ require_once(dirname(__FILE__).'/inc/top.php');
     <td>
       <input type="text" name="qspre" class="text_200" value="<?php echo $pre ?>"  id="qspre"/> </td>
     </tr>
-    
 </table>
-
   </fieldset>
 </div>
-
 <div class="butbox">
 <input name="提交" type="submit" value="开始转换"  class="but90" id="sub" />
 </div>

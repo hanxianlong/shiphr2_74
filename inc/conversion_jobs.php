@@ -6,9 +6,9 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 require_once(dirname(__FILE__).'/splitword.class.php');
 $sp = new SPWord();
 	$i=0;
-	$sql="select * from `{$frpre}hire` ";
-	$result = $dbfr->query($sql);
-	while($row = $dbfr->fetch_array($result))
+	$sql="select * from `{$srcpre}hire` ";
+	$result = $dbsrc->query($sql);
+	while($row = $dbsrc->fetch_array($result))
 	{
 				$userinfo=get_user_inusername($row['h_member']);
 				$company_profile=get_company($userinfo['uid']);
@@ -97,6 +97,7 @@ $sp = new SPWord();
 				$setsqlarr_contact['email']=$userinfo['email'];
 				$setsqlarr_contact['notify']=0;
 				
+                                LOCK_EX
 				//$n=var_export($setsqlarr,true);
 				//file_put_contents("../1.txt",$n, LOCK_EX);
 				//exit();
