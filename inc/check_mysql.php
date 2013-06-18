@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ERROR);
-//¼ÎÔµ
+ 
 $srcdbhost=trim($_POST['srcdbhost']);
 if (empty($srcdbhost)) showmsg('ÇëÌîÐ´ShipHrMYSQL·þÎñÆ÷µØÖ·!');
 $fsrcdbuser=trim($_POST['srcdbuser']);

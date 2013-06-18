@@ -26,39 +26,39 @@ require_once(dirname(__FILE__).'/inc/top.php');
   <tr>
     <td width="100" align="right">MYSQL服务器：</td>
     <td>
-      <input type="text" name="frdbhost" class="text_200"  id="frdbhost"  value="<?php echo $dbhost ?>"/><span class="note">一般为：localhost,也填写IP地址</span></td>
+      <input type="text" name="srcdbhost" class="text_200"  id="srcdbhost"  value="<?php echo $dbhost ?>"/><span class="note">一般为：localhost,也填写IP地址</span></td>
     </tr>
   <tr>
     <td width="100" align="right">数据库用户名：</td>
     <td>
-      <input type="text" name="frdbuser" class="text_200" id="frdbuser" value="<?php echo $dbuser ?>" /> </td>
+      <input type="text" name="srcdbuser" class="text_200" id="srcdbuser" value="<?php echo $dbuser ?>" /> </td>
     </tr>
     <tr>
     <td width="100" align="right">数据库密码：</td>
     <td>
-      <input type="text" name="frdbpass" class="text_200" id="frdbpass" value="<?php echo $dbpass ?>"  /> </td>
+      <input type="text" name="srcdbpass" class="text_200" id="srcdbpass" value="<?php echo $dbpass ?>"  /> </td>
     </tr>
 	<tr>
 	<tr>
     <td width="100" align="right">数据库名：</td>
     <td>
-      <input type="text" name="frdbname" class="text_200" id="frdbname" /> </td>
+      <input type="text" name="srcdbname" class="text_200" id="srcdbname" /> </td>
     </tr>
 	<tr>
     <td width="100" align="right">数据库表前缀：</td>
     <td>
-      <input type="text" name="frpre" class="text_200"  id="frpre"/> </td>
+      <input type="text" name="srcpre" class="text_200"  id="srcpre"/> </td>
     </tr>
 	<tr>
     <td width="100" align="right">数据库字符集：</td>
     <td>
      
 	  <label>
-	  <input name="frdbcharset" type="radio" value="GBK" checked="checked" />
+	  <input name="srcdbcharset" type="radio" value="GBK" checked="checked" />
 	  GBK
 	  </label>
 	  <label>
-	  <input type="radio" name="frdbcharset" value="UTF8" />UTF8
+	  <input type="radio" name="srcdbcharset" value="UTF8" />UTF8
 	  </label>
 	  </td>
     </tr>
