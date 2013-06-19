@@ -6,6 +6,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 	$i=0;
         //公司会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
 	//$sql="select * from `{$srcpre}member` where m_typeid=2";
+        //公司会员套餐信息如何转换？
         $sql="SELECT s.*,f.*,m.* from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 and s.uid=m.uid and c.uid=s.uid;";
         
 	$result = $dbsrc->query($sql);
@@ -19,10 +20,14 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
             $member_type=1;//1为企业会员
             $email=$row['email'];
             $regip=$row['regip'];
-            $mobile=$row['m_mobile'];
-            $add_time=conversion_datefm($row['dateline'],2);
+            $mobile=$row['mobile'];
+            $add_time=$row['dateline'];//conversion_datefm($row['dateline'],2);
             //                  $username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile=''
             conversion_register($username,$password,$passwordtype,$member_type,$email,$regip,$add_time,$mobile);
+            
+            //TODO 转换会员的套餐信息
+            //qs32_members_setmeal
+            
             $i++;
 	}
 exit("ok,{$i}");

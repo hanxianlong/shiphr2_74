@@ -59,7 +59,7 @@ $sp = new SPWord();
 				$setsqlarr['officebuilding']=$company_profile['officebuilding'];
 				$setsqlarr['officebuilding_cn']=$company_profile['officebuilding_cn'];	
 
-				$edu= $dbfr->getone("select * from `{$frpre}edu` where e_id = '{$row['h_edu']}' LIMIT 1");
+				$edu= $dbsrc->getone("select * from `{$frpre}edu` where e_id = '{$row['h_edu']}' LIMIT 1");
 				$education=get_edu($edu['e_name']);
 				$setsqlarr['education']=$education['id'];
 				$setsqlarr['education_cn']=$education['cn'];

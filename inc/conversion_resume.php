@@ -65,7 +65,7 @@ $sp = new SPWord();
 					}
 				}
 				$setsqlarr['householdaddress']=str_replace('*','/',$row['r_hukou']);
-				$edu= $dbfr->getone("select * from `{$frpre}edu` where e_id = '{$row['r_edu']}' LIMIT 1");
+				$edu= $dbsrc->getone("select * from `{$frpre}edu` where e_id = '{$row['r_edu']}' LIMIT 1");
 				$education=get_edu($edu['e_name']);
 				$setsqlarr['education']=$education['id'];
 				$setsqlarr['education_cn']=$education['cn'];
@@ -81,9 +81,9 @@ $sp = new SPWord();
 				$setsqlarr['audit']=1;
 				$setsqlarr['talent']=1;
 				$setsqlarr['addtime']=$setsqlarr['refreshtime'];
-				$resultrecentjobs = $dbfr->query("select * from `{$frpre}work` WHERE w_rid='{$row['r_id']}' ");
+				$resultrecentjobs = $dbsrc->query("select * from `{$frpre}work` WHERE w_rid='{$row['r_id']}' ");
 				$recentjobs=array();
-				while($rowwork = $dbfr->fetch_array($resultrecentjobs))
+				while($rowwork = $dbsrc->fetch_array($resultrecentjobs))
 				{
 					$recentjobs[]=$rowwork['w_comname'];
 				}
@@ -110,7 +110,7 @@ $sp = new SPWord();
 				$setsqlarr['trade_cn']=$row['r_trade'];
 				$setsqlarr['intention_jobs']=str_replace('*',',',$row['r_position']);
 				$setsqlarr['specialty']=$row['r_ability'];
-				$logo= $dbfr->getone("select m_logo from `{$frpre}member` where m_login = '{$row['r_member']}' LIMIT 1");
+				$logo= $dbsrc->getone("select m_logo from `{$frpre}member` where m_login = '{$row['r_member']}' LIMIT 1");
 				if (!empty($logo['m_logo']))
 				{
 			 
@@ -160,8 +160,8 @@ $sp = new SPWord();
 					}
 				}
 				//教育经历
-				$resultedu = $dbfr->query("select * from `{$frpre}education` WHERE e_rid='{$row['r_id']}' ");
-				while($rowedu = $dbfr->fetch_array($resultedu))
+				$resultedu = $dbsrc->query("select * from `{$frpre}education` WHERE e_rid='{$row['r_id']}' ");
+				while($rowedu = $dbsrc->fetch_array($resultedu))
 				{
 					$esql['uid']=$userinfo['uid'];
 					$esql['pid']=$pid;
@@ -175,8 +175,8 @@ $sp = new SPWord();
 					conversion_inserttable(table('resume_education'),$esql);
 				}
 				 //工作经历
-				$resultwork = $dbfr->query("select * from `{$frpre}work` WHERE w_rid='{$row['r_id']}' ");
-				while($rowwork = $dbfr->fetch_array($resultwork))
+				$resultwork = $dbsrc->query("select * from `{$frpre}work` WHERE w_rid='{$row['r_id']}' ");
+				while($rowwork = $dbsrc->fetch_array($resultwork))
 				{
 					$wsql['uid']=$userinfo['uid'];
 					$wsql['pid']=$pid;
@@ -189,8 +189,8 @@ $sp = new SPWord();
 					conversion_inserttable(table('resume_work'),$wsql);
 				}
 				//培训
-				$resulttraining = $dbfr->query("select * from `{$frpre}training` WHERE t_rid='{$row['r_id']}' ");
-				while($rowt = $dbfr->fetch_array($resulttraining))
+				$resulttraining = $dbsrc->query("select * from `{$frpre}training` WHERE t_rid='{$row['r_id']}' ");
+				while($rowt = $dbsrc->fetch_array($resulttraining))
 				{
 					$tsql['uid']=$userinfo['uid'];
 					$tsql['pid']=$pid;

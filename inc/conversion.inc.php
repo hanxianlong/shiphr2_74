@@ -87,6 +87,8 @@ function conversion_register($username,$password,$passwordtype=0,$member_type=0,
 	$setsqlarr['reg_time']=$timestamp;
 	$setsqlarr['reg_ip']=$ip;
 	$setsqlarr['mobile']=$mobile;
+        //邮箱认证
+        //手机号认证
 	$insert_id=conversion_inserttable(table('members'),$setsqlarr,true);
 			if($member_type=="1")
 			{
