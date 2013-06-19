@@ -94,7 +94,7 @@ $sp = new SPWord();
 				else
 				{
 				$setsqlarr['recentjobs']=implode(',',$recentjobs);
-				}				
+				}
 				$nature=get_jobs_nature($row['r_jobtype']);
 				$setsqlarr['nature']=$nature[0];
 				$setsqlarr['nature_cn']=$nature[1];

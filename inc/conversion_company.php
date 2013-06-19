@@ -10,12 +10,13 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 	$result = $dbsrc->query($sql);
 	while($row = $dbsrc->fetch_array($result))
 	{
-		$userinfo=get_user_inusername($row['m_login']);
+		$userinfo=get_user_inuid($row['uid']);
 		$setsqlarr['uid']=intval($userinfo['uid']);
-		$setsqlarr['companyname']=$row['m_name'];
+		$setsqlarr['companyname']=$row['corptitle'];
 		
- 		$nature=get_company_nature($row['m_ecoclass']);
-		$setsqlarr['nature']=$nature['id'];
+ 		//$nature=get_company_nature($row['m_ecoclass']);
+		$nature = $row[''];
+                $setsqlarr['nature']=$nature['id'];
 		$setsqlarr['nature_cn']=$nature['cn'];
 	
 		$trade=get_company_trade($row['m_trade']); 
@@ -40,7 +41,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 		$setsqlarr['telephone']=$row['m_tel'];
 		$setsqlarr['email']=$row['m_email'];
 		$setsqlarr['website']=$row['m_url'];
-		$setsqlarr['contents']=$row['m_introduce'];	
+		$setsqlarr['contents']=$row['m_introduce'];
 		$setsqlarr['addtime']=conversion_datefm($row['m_regdate'],2);
 		$setsqlarr['refreshtime']=$setsqlarr['addtime'];
 		$setsqlarr['audit']=1;

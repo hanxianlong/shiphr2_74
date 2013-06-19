@@ -11,6 +11,7 @@ $qsdbuser=trim($_GET['qsdbuser']);
 $qsdbpass=trim($_GET['qsdbpass']);
 $qsdbname=trim($_GET['qsdbname']);
 $qspre=trim($_GET['qspre']);
+
 $dbsrc = new mysql($srcdbhost,$srcdbuser,$srcdbpass,$srcdbname);
 $db = new mysql($qsdbhost,$qsdbuser,$qsdbpass,$qsdbname);
 function table($table)
@@ -87,15 +88,16 @@ function conversion_register($username,$password,$passwordtype=0,$member_type=0,
 	$setsqlarr['reg_time']=$timestamp;
 	$setsqlarr['reg_ip']=$ip;
 	$setsqlarr['mobile']=$mobile;
-        //邮箱认证
+        //TODO 邮箱认证
         //手机号认证
 	$insert_id=conversion_inserttable(table('members'),$setsqlarr,true);
-			if($member_type=="1")
-			{
-				if(!$db->query("INSERT INTO ".table('members_points')." (uid) VALUES ('{$insert_id}')"))  return false;
-				if(!$db->query("INSERT INTO ".table('members_setmeal')." (uid) VALUES ('{$insert_id}')")) return false;					
-			}
-return $insert_id;
+        
+        if($member_type=="1")
+        {
+                if(!$db->query("INSERT INTO ".table('members_points')." (uid) VALUES ('{$insert_id}')"))  return false;
+                if(!$db->query("INSERT INTO ".table('members_setmeal')." (uid) VALUES ('{$insert_id}')")) return false;					
+        }
+        return $insert_id;
 }
 
 /*
@@ -107,6 +109,16 @@ function get_user_inemail($email)
 	$email=escape_str($email);
 	return $db->getone("select * from ".table('members')." where email = '{$email}' LIMIT 1");
 }
+
+/*
+ * 根据用户id获取用户信息
+ */
+function get_user_inuid($uid)
+{
+	global $db; 
+	return $db->getone("select * from ".table('members')." where email = '{$uid}' LIMIT 1");
+}
+
 
 /*
  * 判断当前用户名是否已经在members表中存在
@@ -246,11 +258,11 @@ function get_company_scale($str=NULL)
 		$return=search_str($info,$str,"c_name");
 		if ($return)
 		{
-		return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+                    return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
 		}
 		else
 		{
-		return $default;
+                    return $default;
 		}
 	}
 }
