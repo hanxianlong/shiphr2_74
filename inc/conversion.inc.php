@@ -197,6 +197,13 @@ function search_str($arr,$str,$arrinname,$n=30)
 				}
 			}	
 }
+
+/**
+ * 获取公司性质（国有、私人之类），仅在conversion_company.php文件中使用到
+ * @global mysql $db
+ * @param type $str
+ * @return string
+ */
 function get_company_nature($str=NULL)
 {
 	global $db;
@@ -220,6 +227,8 @@ function get_company_nature($str=NULL)
 		}
 	}
 }
+
+
 function get_company_trade($str=NULL)
 {
 	global $db;
@@ -243,6 +252,13 @@ function get_company_trade($str=NULL)
 		}
 	}
 }
+
+/**
+ * 获取公司规模，仅在conversion_company.php中使用到
+ * @global mysql $db
+ * @param type $str
+ * @return string
+ */
 function get_company_scale($str=NULL)
 {
 	global $db;
@@ -266,6 +282,32 @@ function get_company_scale($str=NULL)
 		}
 	}
 }
+
+
+function get_city_original($str)
+{
+	global $db;
+	$default=array("district"=>0,"sdistrict"=>0,"district_cn"=>'未知');
+	if (empty($str))
+	{
+		return $default;
+	}
+	else
+	{
+		$sql = "select id,parentid,categoryname from ".table('category_district')." WHERE parentid<>0";
+		$info=$db->getall($sql);
+		$return=search_str($info,$str,"categoryname");
+		if ($return)
+		{
+		return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);		
+		}
+		else
+		{
+		return $default;
+		}
+	}
+}
+
 function get_city($str)
 {
 	global $db;
@@ -289,6 +331,13 @@ function get_city($str)
 		}
 	}
 }
+
+/**
+ * 获取职位类别
+ * @global mysql $db
+ * @param type $str
+ * @return int
+ */
 function get_jobs_cat($str)
 {
 	global $db;
@@ -304,7 +353,7 @@ function get_jobs_cat($str)
 		$return=search_str($info,$str,"categoryname");
 		if ($return)
 		{
-		return array("category"=>$return['parentid'],"subclass"=>$return['id'],"category_cn"=>$return['categoryname']);		
+                    return array("category"=>$return['parentid'],"subclass"=>$return['id'],"category_cn"=>$return['categoryname']);		
 		}
 		else
 		{
@@ -334,6 +383,7 @@ function get_jobs_nature($str)
 		return array($cid['c_id'],$cid['c_name']);
 	}
 }
+
 function get_sex($str)
 {
 	if ($str=="1")
@@ -421,7 +471,6 @@ function get_wage_str($str=NULL)
 	case "14":return "1万以上/月";
 	default :return $str;
 	}
-	
 }
 function get_wage($str=NULL)
 {

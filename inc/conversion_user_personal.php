@@ -24,7 +24,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 		//conversion_register($row['m_login'],$row['m_pwd'],1,1,$row['m_email'],$row['m_loginip'],conversion_datefm($row['m_regdate'],2),$row['m_mobile']);
             $username=$row['username'];
             $password=$row['password'];
-            $passwordtype=1;
+            $passwordtype=1;//当passwordtype为1时，直接保存此字段到数据库中，不进行二次加密。
             $member_type=2;//2为个人会员
             $email=$row['email'];
             $regip=$row['regip'];

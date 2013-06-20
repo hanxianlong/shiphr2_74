@@ -13,7 +13,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 	$result = $dbsrc->query($sql);
 	while($row = $dbsrc->fetch_array($result))
 	{
-            //loginip与注册ip保持一致
+            //loginip与注册ip保持一致git 
 		//conversion_register($row['m_login'],$row['m_pwd'],1,1,$row['m_email'],$row['m_loginip'],conversion_datefm($row['m_regdate'],2),$row['m_mobile']);
             $username=$row['username'];
             $password=$row['password'];
