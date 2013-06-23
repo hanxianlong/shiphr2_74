@@ -6,6 +6,16 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 //http://myconverter.shiyishi.tk/inc/conversion_test.php?qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=74cms32&qspre=qs32_&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=74cms32&srcpre=qs32_&srcdbcharset=GBK
 $setmeal_cache = array();
 
+$d = $_GET['a'];
+
+switch($d){
+    case "1":$name="start with a";
+    case "2": $name="start with b";
+    case "3":$name="start with c";
+}
+
+echo $name;
+
 $i=0;
 foreach(array(1,2,3,4,5,1) as $key){
     //get_meal($key);

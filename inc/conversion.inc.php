@@ -281,11 +281,11 @@ function get_city($str)
 		$return=search_str($info,$str,"categoryname");
 		if ($return)
 		{
-		return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);		
+                    return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);		
 		}
 		else
 		{
-		return $default;
+                    return $default;
 		}
 	}
 }
@@ -295,37 +295,65 @@ function get_jobs_cat($str)
 	$default=array("category"=>0,"subclass"=>0,"category_cn"=>'未知');
 	if (empty($str))
 	{
-		return $default;
+            return $default;
 	}
-	else
-	{
-		$sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE parentid<>0";
+	 
+        //modified by wnfk,按类别名称进行精确匹配
+            $sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE categoryname='$str'";
+            $category = $db->getone($sql);
+            if ($category)
+            {
+                return array("category"=>$category['parentid'],"subclass"=>$category['id'],"category_cn"=>$category['categoryname']);		
+            }
+            else
+            {
+                return $default;
+            }
+	/*	$sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE parentid<>0";
 		$info=$db->getall($sql);
 		$return=search_str($info,$str,"categoryname");
 		if ($return)
 		{
-		return array("category"=>$return['parentid'],"subclass"=>$return['id'],"category_cn"=>$return['categoryname']);		
+                    return array("category"=>$return['parentid'],"subclass"=>$return['id'],"category_cn"=>$return['categoryname']);		
 		}
 		else
 		{
-		return $default;
+                    return $default;
 		}
-	}
+         */ 
 }
+
+/**
+ * 工作类型
+ * @global mysql $db
+ * @param type $str
+ * @return type
+ * hr:$jobtypes = array( "无", "全职", "兼职", "临时", "实习" );
+ * TODO:将类型id与74cms中的类型正确对应起来
+ */
 function get_jobs_nature($str)
 {
 	global $db;
 	switch ($str)
 	{
-	case "1":$str="全职";
-	case "2":$str="兼职";
-	case "3":$str="不限";
+	case "1":
+            return array(-1,'全职');
+            break;
+	case "2":
+            return array(-1,"兼职");
+            break;
+        case "0":
+	case "3":
+            return array(-1,"不限");
+            break;
 	}
+        
+        /*
 	$sql = "select * from ".table('category')." where c_alias='QS_jobs_nature' AND c_name='{$str}'";
 	$cid=$db->getone($sql);
 	if ($cid)
 	{
-	return array($cid['c_id'],$cid['c_name']);
+            return array($cid['c_id'],$cid['c_name']);
 	}
 	else
 	{
@@ -333,6 +361,7 @@ function get_jobs_nature($str)
 		$cid=$db->getone($sql);
 		return array($cid['c_id'],$cid['c_name']);
 	}
+         */
 }
 function get_sex($str)
 {
@@ -372,14 +401,21 @@ function get_edu($str=NULL)
 		}
 	}
 }
+
+/**
+ *  //工作经验:0－不限  1、2、3、5、10：N年以上
+ * @global mysql $db
+ * @param type $str
+ * @return int
+ */
 function get_exp($str=NULL)
 {
 	global $db;
 	switch ($str)
 	{
-	case "0":$str="无经验";
-	case "-1":$str="无经验";
-	default :$str=$str."年";
+            case "0":$str="无经验";
+            case "-1":$str="无经验";
+            default :$str=$str."年";
 	}
 	$default=array("id"=>0,"cn"=>'未知');
 	if (empty($str))
@@ -393,38 +429,75 @@ function get_exp($str=NULL)
 		$return=search_str($info,$str,"c_name");
 		if ($return)
 		{
-		return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+                    return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
 		}
 		else
 		{
-		return $default;
+                    return $default;
 		}
 	}
 }
-function get_wage_str($str=NULL)
+function get_wage_str($id=0)
 {
-	switch ($str)
+    $wage_array = array("面议", "2000～3000/月", "3000～4000/月", "4000～6000/月", "6000～8000/月", "8000～10000/月", "10000～15000/月", "15000～20000/月", "20000～30000/月", "30000以上/月");
+    return $wage_array[$id];
+/*	switch ($str)
 	{
-	case "1":return "1000~1500元/月";
-	case "2":return "1000~1500元/月";
-	case "3":return "1000~1500元/月";
-	case "4":return "1000~1500元/月";
-	case "5":return "1500~2000元/月";
-	case "6":return "2000~3000元/月";
-	case "7":return "2000~3000元/月";
-	case "8":return "3000~5000元/月";
-	case "9":return "3000~5000元/月";
-	case "10":return "3000~5000元/月";
-	case "11":return "3000~5000元/月";
-	case "12":return "1万以上/月";
-	case "13":return "1万以上/月";
-	case "14":return "1万以上/月";
-	default :return $str;
+            case "1":return "1000~1500元/月";
+            case "2":return "1000~1500元/月";
+            case "3":return "1000~1500元/月";
+            case "4":return "1000~1500元/月";
+            case "5":return "1500~2000元/月";
+            case "6":return "2000~3000元/月";
+            case "7":return "2000~3000元/月";
+            case "8":return "3000~5000元/月";
+            case "9":return "3000~5000元/月";
+            case "10":return "3000~5000元/月";
+            case "11":return "3000~5000元/月";
+            case "12":return "1万以上/月";
+            case "13":return "1万以上/月";
+            case "14":return "1万以上/月";
+            default :return $str;
 	}
-	
+	*/
 }
+
+/**
+ * 根据shiphr中的工资范围id设置74cms的工资范围id
+ * @global mysql $db
+ * @param type $str
+ * @return int
+ */
 function get_wage($str=NULL)
 {
+    $id = intval($str);
+    switch($id){
+        case 0:
+            return -1;
+            break;
+        case 1:
+            return -1;
+            break;
+        case 2:
+            return -1;
+            break;
+        case 3:
+            return -1;
+            break;  
+        case 4:
+            return -1;
+            break;
+        case 5:
+            return -1;
+            break;
+        case 6:
+            return -1;
+            break;
+        case 7:
+            return -1;
+            break;
+    }
+    return;
 	global $db;
 	$default=array("id"=>0,"cn"=>'未知');
 	if (empty($str))
