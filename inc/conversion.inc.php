@@ -24,7 +24,7 @@ function escape_str($str)
 	global $srcdbcharset;
 	if ($srcdbcharset=='UTF8')
 	{
-	$str=iconv("utf-8",'gbk//IGNORE',$str);
+            $str=iconv("utf-8",'gbk//IGNORE',$str);
 	}
 	$str=mysql_escape_string($str);
 	$str=str_replace('\\\'','\'\'',$str);
@@ -45,9 +45,8 @@ function conversion_inserttable($tablename, $insertsqlarr, $returnid=0, $replace
 	$state = $db->query($method." INTO $tablename ($insertkeysql) VALUES ($insertvaluesql)", $silent?'SILENT':'');
 	if($returnid && !$replace) {
 		return $db->insert_id();
-	}else {
-	    return $state;
 	} 
+	 return $state;
 }
 
 /*注册新用户
@@ -60,15 +59,15 @@ function conversion_register($username,$password,$passwordtype=0,$member_type=0,
 	$ck_email=get_user_inemail($email);
 	if ($member_type==0) 
 	{
-	return -1;
+            return -1;
 	}
 	elseif (!empty($ck_username))
 	{
-	return -2;
+            return -2;
 	}
 	elseif (!empty($ck_email))
 	{
-	return -3;
+            return -3;
 	}
 	
 	$pwd_hash=randstr();
@@ -79,7 +78,7 @@ function conversion_register($username,$password,$passwordtype=0,$member_type=0,
 	else
 	{
 	$password_hash=$password;
-	}	
+	}
 	$setsqlarr['username']=$username;
 	$setsqlarr['password']=$password_hash;
 	$setsqlarr['pwd_hash']=$pwd_hash;
@@ -118,7 +117,6 @@ function get_user_inuid($uid)
 	global $db; 
 	return $db->getone("select * from ".table('members')." where email = '{$uid}' LIMIT 1");
 }
-
 
 /*
  * 判断当前用户名是否已经在members表中存在
@@ -159,9 +157,9 @@ function conversion_datefm($date,$format,$separator="-")
 	 }
 	 else
 	 {
-		if (!preg_match("/^[0-9]{4}(\\".$separator.")[0-9]{1,2}(\\1)[0-9]{1,2}(|\s+[0-9]{1,2}(|:[0-9]{1,2}(|:[0-9]{1,2})))$/",$date))  return $date;
-		$date=explode($separator,$date);
-		return mktime(0,0,0,$date[1],$date[2],$date[0]);
+            if (!preg_match("/^[0-9]{4}(\\".$separator.")[0-9]{1,2}(\\1)[0-9]{1,2}(|\s+[0-9]{1,2}(|:[0-9]{1,2}(|:[0-9]{1,2})))$/",$date))  return $date;
+            $date=explode($separator,$date);
+            return mktime(0,0,0,$date[1],$date[2],$date[0]);
 	 }
 }
 function randstr($length=6)
@@ -179,23 +177,20 @@ function randstr($length=6)
 //模糊搜索
 function search_str($arr,$str,$arrinname,$n=30)
 {
-		foreach ($arr as $key =>$list)
-		{
-			similar_text($list[$arrinname],$str,$percent);
-			$od[$percent]=$key;
-		}
-			krsort($od);
-			foreach ($od as $key =>$li)
-			{
-				if ($key>=$n)
-				{
-				return $arr[$li];
-				}
-				else
-				{
-				return false;
-				}
-			}	
+        foreach ($arr as $key =>$list)
+        {
+                similar_text($list[$arrinname],$str,$percent);
+                $od[$percent]=$key;
+        }
+        krsort($od);
+        foreach ($od as $key =>$li)
+        {
+            if ($key>=$n)
+            {
+                return $arr[$li];
+            }
+            return false;
+        }
 }
 
 /**
@@ -212,20 +207,15 @@ function get_company_nature($str=NULL)
 	{
 		return $default;
 	}
-	else
-	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_company_type'";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"c_name");
-		if ($return)
-		{
-		return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-		}
-		else
-		{
-		return $default;
-		}
-	}
+	 
+        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_company_type'";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"c_name");
+        if ($return)
+        {
+            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+        }
+        return $default;
 }
 
 
@@ -237,20 +227,16 @@ function get_company_trade($str=NULL)
 	{
 		return $default;
 	}
-	else
-	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_trade'";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"c_name");
-		if ($return)
-		{
-		return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-		}
-		else
-		{
-		return $default;
-		}
-	}
+	 
+        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_trade'";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"c_name");
+        if ($return)
+        {
+        return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+        }
+        return $default;
+        
 }
 
 /**
@@ -267,20 +253,15 @@ function get_company_scale($str=NULL)
 	{
 		return $default;
 	}
-	else
-	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_scale'";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"c_name");
-		if ($return)
-		{
-                    return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-		}
-		else
-		{
-                    return $default;
-		}
-	}
+	 
+        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_scale'";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"c_name");
+        if ($return)
+        {
+            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+        }
+        return $default;
 }
 
 
@@ -292,20 +273,15 @@ function get_city_original($str)
 	{
 		return $default;
 	}
-	else
-	{
-		$sql = "select id,parentid,categoryname from ".table('category_district')." WHERE parentid<>0";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"categoryname");
-		if ($return)
-		{
-		return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);		
-		}
-		else
-		{
-		return $default;
-		}
-	}
+	 
+        $sql = "select id,parentid,categoryname from ".table('category_district')." WHERE parentid<>0";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"categoryname");
+        if ($return)
+        {
+            return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);		
+        }
+        return $default;
 }
 
 function get_city($str)
@@ -316,19 +292,15 @@ function get_city($str)
 	{
 		return $default;
 	}
-	else
-	{
-		$sql = "select id,parentid,categoryname from ".table('category_district')." WHERE parentid<>0";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"categoryname");
-		if ($return)
-		{
-		}
-		else
-		{
-                    return $default;
-		}
-	}
+	 
+        $sql = "select id,parentid,categoryname from ".table('category_district')." WHERE parentid<>0";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"categoryname");
+        if ($return)
+        {
+           return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);
+        }
+        return $default;
 }
 
 /**
@@ -346,17 +318,17 @@ function get_jobs_cat($str)
             return $default;
 	}
 	 
-        //modified by wnfk,按类别名称进行精确匹配
-            $sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE categoryname='$str'";
-            $category = $db->getone($sql);
-            if ($category)
-            {
-                return array("category"=>$category['parentid'],"subclass"=>$category['id'],"category_cn"=>$category['categoryname']);		
-            }
-            else
-            {
-                return $default;
-            }
+    //modified by wnfk,按类别名称进行精确匹配
+        $sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE categoryname='$str'";
+        $category = $db->getone($sql);
+        if ($category)
+        {
+            return array("category"=>$category['parentid'],"subclass"=>$category['id'],"category_cn"=>$category['categoryname']);		
+        }
+        else
+        {
+            return $default;
+        }
 	/*	$sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE parentid<>0";
 		$info=$db->getall($sql);
 		$return=search_str($info,$str,"categoryname");
@@ -386,7 +358,6 @@ function get_jobs_nature($str)
 	{
 	case "1":
             return array(-1,'全职');
-            break;
 	case "2":
             return array(-1,"兼职");
             break;
@@ -414,41 +385,31 @@ function get_jobs_nature($str)
 
 function get_sex($str)
 {
-	if ($str=="1")
-	{
-	return array(1,'男');
-	}
-	elseif ($str=="2")
-	{
-	return array(2,'女');
-	}
-	else
-	{
-	return array(3,'不限');
-	}
+   $id= intval($str);
+   $gendorarray=array(1=>'男',2=>'女',3=>'不限');
+   if(array_key_exists($str, $gendorarray)){
+       return $gendorarray[$str];
+   }
+   return $gendorarray[3];
 }
+
 function get_edu($str=NULL)
 {
 	global $db;
 	$default=array("id"=>0,"cn"=>'未知');
 	if (empty($str))
 	{
-		return $default;
+            return $default;
 	}
-	else
-	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_education'";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"c_name");
-		if ($return)
-		{
-		return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-		}
-		else
-		{
-		return $default;
-		}
-	}
+        
+        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_education'";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"c_name");
+        if ($return)
+        {
+            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+        }
+        return $default; 
 }
 
 /**
@@ -462,29 +423,23 @@ function get_exp($str=NULL)
 	global $db;
 	switch ($str)
 	{
-            case "0":$str="无经验";
-            case "-1":$str="无经验";
-            default :$str=$str."年";
+            case "0":$str="无经验"; break;
+            case "-1":$str="无经验";break;
+            default :$str=$str."年";break;
 	}
 	$default=array("id"=>0,"cn"=>'未知');
 	if (empty($str))
 	{
 		return $default;
 	}
-	else
-	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_experience'";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"c_name");
-		if ($return)
-		{
-                    return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-		}
-		else
-		{
-                    return $default;
-		}
-	}
+        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_experience'";
+        $info=$db->getall($sql);
+        $return=search_str($info,$str,"c_name");
+        if ($return)
+        {
+            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
+        }
+        return $default;
 }
 function get_wage_str($id=0)
 {
@@ -508,8 +463,8 @@ function get_wage_str($id=0)
             case "14":return "1万以上/月";
             default :return $str;
 	}
-<<<<<<< .mine=======	*/
->>>>>>> .theirs}
+ 	*/
+}
 
 /**
  * 根据shiphr中的工资范围id设置74cms的工资范围id
@@ -547,6 +502,7 @@ function get_wage($str=NULL)
             break;
     }
     return;
+    /**
 	global $db;
 	$default=array("id"=>0,"cn"=>'未知');
 	if (empty($str))
@@ -566,7 +522,7 @@ function get_wage($str=NULL)
 		{
 		return $default;
 		}
-	}
+	}**/
 }
 
 
@@ -579,12 +535,13 @@ function conversion_add_resume_jobs($pid,$uid,$str)
 	{
 		foreach($arr as $a)
 		{
-		$a=explode(".",$a);
-		$setsqlarr['uid']=intval($uid);
-		$setsqlarr['pid']=intval($pid);
-		$setsqlarr['category']=intval($a[0]);
-		$setsqlarr['subclass']=intval($a[1]);
-			if (!conversion_inserttable(table('resume_jobs'),$setsqlarr))return false;
+                    $a=explode(".",$a);
+                    $setsqlarr['uid']=intval($uid);
+                    $setsqlarr['pid']=intval($pid);
+                    $setsqlarr['category']=intval($a[0]);
+                    $setsqlarr['subclass']=intval($a[1]);
+                    if (!conversion_inserttable(table('resume_jobs'),$setsqlarr))
+                        return false;
 		}
 	}
 }
