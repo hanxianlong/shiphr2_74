@@ -22,6 +22,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 	{
             //loginip与注册ip保持一致
 		//conversion_register($row['m_login'],$row['m_pwd'],1,1,$row['m_email'],$row['m_loginip'],conversion_datefm($row['m_regdate'],2),$row['m_mobile']);
+            $uid= $row['uid'];
             $username=$row['username'];
             $password=$row['password'];
             $passwordtype=1;//当passwordtype为1时，直接保存此字段到数据库中，不进行二次加密。
@@ -31,7 +32,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
             $mobile=$row['mobile'];
             $add_time=$row['dateline'];//conversion_datefm($row['dateline'],2);
             //                  $username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile=''
-            conversion_register($username,$password,$passwordtype,$member_type,$email,$regip,$add_time,$mobile);
+            conversion_register($uid,$username,$password,$passwordtype,$member_type,$email,$regip,$add_time,$mobile);
             $i++;
 	}
 exit("ok,{$i}");

@@ -11,10 +11,13 @@ $sp = new SPWord();
 	$result = $dbsrc->query($sql);
 	while($row = $dbsrc->fetch_array($result))
 	{
-				//$userinfo=get_user_inusername($row['h_member']);
-				//$company_profile=get_company($userinfo['uid']);
+            //$userinfo=get_user_inusername($row['h_member']);
+            //$company_profile=get_company($userinfo['uid']);
+            $id = $row['id'];
             $uid=$row['uid'];
+            
             $company_profile=get_company($uid);
+            $setsqlarr['id']=$id;//工作id
             $setsqlarr['add_mode']=1;//运行模式：1、积分模式 2、套餐模式
             $setsqlarr['uid']=$uid;//用户Id
             $setsqlarr['jobs_name']=$row['title'];//工作名称
@@ -82,8 +85,9 @@ $sp = new SPWord();
             //shiphr:seniority 工作经验 
             //shiphr:language  语言要求
             //shiphr:langugelevel 语言等级要求
-            $edu= $dbsrc->getone("select * from `{$frpre}edu` where e_id = '{$row['edudegree']}' LIMIT 1");
-            $education=get_edu($edu['e_name']);
+         //   $edu= $dbsrc->getone("select * from `{$frpre}edu` where e_id = '{$row['edudegree']}' LIMIT 1");
+          //  $education=get_edu($edu['e_name']);
+            $education=get_edu($edu['edudegree']);
             $setsqlarr['education']=$education['id'];
             $setsqlarr['education_cn']=$education['cn'];
 
@@ -99,8 +103,6 @@ $sp = new SPWord();
             $setsqlarr['wage_cn']=get_wage_str($row['emolument']);
 
             $setsqlarr['graduate']=0;
-
-            ///////////////////////2013.06.23晚编辑到此处///////////////////////////////////////////
             $setsqlarr['addtime']=conversion_datefm($row['h_adddate'],2);
 
             $setsqlarr['deadline']=conversion_datefm($row['h_enddate'],2);
@@ -129,12 +131,16 @@ $sp = new SPWord();
             //file_put_contents("../1.txt",$n, LOCK_EX);
             //exit();
             //添加职位信息
-            $pid=conversion_inserttable(table('jobs'),$setsqlarr,true);
-            empty($pid)?exit("添加失败！"):'';
+            $pid=conversion_inserttable(table('jobs'),$setsqlarr,true,true);
+            empty($pid)?exit("添加工作失败！"):'';
             //添加联系方式
             $setsqlarr_contact['pid']=$pid;
-            !conversion_inserttable(table('jobs_contact'),$setsqlarr_contact)?exit("添加失败！"):'';
-
+            $count = $db->getone('select count(*) as count from '. table('jobs_contact') .' where pid=' . $pid);
+            if(intval($count['count'])==0)
+            {
+                !conversion_inserttable(table('jobs_contact'),$setsqlarr_contact)?exit("添加工作联系方式失败！jobid:" . $pid):'';
+            }
+            
             $searchtab['id']=$pid;
             $searchtab['uid']=$setsqlarr['uid'];
             $searchtab['subsite_id']=$setsqlarr['subsite_id'];
@@ -155,26 +161,26 @@ $sp = new SPWord();
             $searchtab['refreshtime']=$setsqlarr['refreshtime'];
             $searchtab['scale']=$setsqlarr['scale'];	
             //
-            conversion_inserttable(table('jobs_search_wage'),$searchtab);
-            conversion_inserttable(table('jobs_search_scale'),$searchtab);
+            conversion_inserttable(table('jobs_search_wage'),$searchtab,false,true);
+            conversion_inserttable(table('jobs_search_scale'),$searchtab,false,true);
             //
             $searchtab['map_x']=$setsqlarr['map_x'];
             $searchtab['map_y']=$setsqlarr['map_y'];
-            conversion_inserttable(table('jobs_search_rtime'),$searchtab);
+            conversion_inserttable(table('jobs_search_rtime'),$searchtab,false,true);
             unset($searchtab['map_x'],$searchtab['map_y']);
             //
             $searchtab['stick']=$setsqlarr['stick'];
-            conversion_inserttable(table('jobs_search_stickrtime'),$searchtab);
+            conversion_inserttable(table('jobs_search_stickrtime'),$searchtab,false,true);
             unset($searchtab['stick']);
             //
             $searchtab['click']=$setsqlarr['click'];
-            conversion_inserttable(table('jobs_search_hot'),$searchtab);
+            conversion_inserttable(table('jobs_search_hot'),$searchtab,false,true);
             unset($searchtab['click']);
             //
             $searchtab['key']=$setsqlarr['key'];
             $searchtab['map_x']=$setsqlarr['map_x'];
             $searchtab['map_y']=$setsqlarr['map_y'];
-            conversion_inserttable(table('jobs_search_key'),$searchtab);
+            conversion_inserttable(table('jobs_search_key'),$searchtab,false,true);
             unset($searchtab);
             //
             $tag=explode('|',$setsqlarr['tag']);
@@ -184,9 +190,9 @@ $sp = new SPWord();
             {
                     foreach($tag as $v)
                     {
-                    $vid=explode(',',$v);
-                    $tagsql['tag'.$tagindex]=intval($vid[0]);
-                    $tagindex++;
+                        $vid=explode(',',$v);
+                        $tagsql['tag'.$tagindex]=intval($vid[0]);
+                        $tagindex++;
                     }
             }
             $tagsql['id']=$pid;
@@ -194,8 +200,8 @@ $sp = new SPWord();
             $tagsql['category']=$setsqlarr['category'];
             $tagsql['subclass']=$setsqlarr['subclass'];
             $tagsql['district']=$setsqlarr['district'];
-            $tagsql['sdistrict']=$setsqlarr['sdistrict'];	
-            conversion_inserttable(table('jobs_search_tag'),$tagsql);
+            $tagsql['sdistrict']=$setsqlarr['sdistrict'];
+            conversion_inserttable(table('jobs_search_tag'),$tagsql,false,true);
             $i++;
         }
 exit("ok,{$i}");

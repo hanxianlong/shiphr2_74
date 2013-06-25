@@ -12,6 +12,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 	{
 		//$userinfo=get_user_inuid($row['uid']);
 		//$setsqlarr['uid']=intval($userinfo['uid']);
+                $setsqlarr['id'] = intval($row['id']);
                 $setsqlarr['uid']=intval($row['uid']);
 		$setsqlarr['companyname']=$row['corptitle'];
                 //公司性质：国有、私有等
@@ -95,7 +96,7 @@ shiphr:
 		//$n=var_export($setsqlarr,true);
 		//file_put_contents("../1.txt",$n, LOCK_EX);
 		//exit();
-		conversion_inserttable(table('company_profile'),$setsqlarr);
+		conversion_inserttable(table('company_profile'),$setsqlarr,false,true);
 		$i++;
 	}
 exit("ok,{$i}");

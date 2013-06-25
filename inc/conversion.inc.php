@@ -51,7 +51,7 @@ function conversion_inserttable($tablename, $insertsqlarr, $returnid=0, $replace
 
 /*注册新用户
  */
-function conversion_register($username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile='')
+function conversion_register($userid,$username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile='')
 {
 	global $db,$QS_pwdhash;
 	$member_type=intval($member_type);
@@ -88,13 +88,13 @@ function conversion_register($username,$password,$passwordtype=0,$member_type=0,
 	$setsqlarr['reg_ip']=$ip;
 	$setsqlarr['mobile']=$mobile;
         //TODO 邮箱认证
-        //手机号认证
-	$insert_id=conversion_inserttable(table('members'),$setsqlarr,true);
+        //手机号认证 
+	$insert_id=conversion_inserttable(table('members'),$setsqlarr,true,true);
         
         if($member_type=="1")
         {
-                if(!$db->query("INSERT INTO ".table('members_points')." (uid) VALUES ('{$insert_id}')"))  return false;
-                if(!$db->query("INSERT INTO ".table('members_setmeal')." (uid) VALUES ('{$insert_id}')")) return false;					
+                if(!$db->query("REPLACE INTO ".table('members_points')." (uid) VALUES ('{$insert_id}')"))  return false;
+                if(!$db->query("REPLACE INTO ".table('members_setmeal')." (uid) VALUES ('{$insert_id}')")) return false;					
         }
         return $insert_id;
 }
@@ -393,8 +393,35 @@ function get_sex($str)
    return $gendorarray[3];
 }
 
-function get_edu($str=NULL)
+/**
+ * 转换学历
+ * @global mysql $db
+ * @param type $str
+ * @return int
+ */
+function get_edu($id=NULL)
 {
+    /**
+     * 1	初中	Junior High School
+2	高中	Senior High School
+3	职高/技校	Vocational high school/Technical School
+4	中专	Technical Secondary School
+5	大专	Junior College
+6	大学本科	Bachelor
+7	硕士	Master
+8	博士	Doctorate
+     */
+   $edu_array = array(1=>array(-1,'初中'),
+       2=>array('id'=>-1,'cn'=>'高中'),
+       3=>array('id'=>-1,'cn'=>'职高/技校'),
+       4=>array('id'=>-1,'cn'=>'中专'),
+       5=>array('id'=>-1,'cn'=>'大专'),
+       6=>array('id'=>-1,'cn'=>'大学本科'),
+       7=>array('id'=>-1,'cn'=>'硕士'),
+       8=>array('id'=>-1,'cn'=>'博士'),
+       );
+    return $edu_array[$id];
+    /*
 	global $db;
 	$default=array("id"=>0,"cn"=>'未知');
 	if (empty($str))
@@ -409,7 +436,7 @@ function get_edu($str=NULL)
         {
             return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
         }
-        return $default; 
+        return $default; */
 }
 
 /**
