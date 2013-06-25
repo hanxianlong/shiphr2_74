@@ -15,25 +15,13 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
                 $setsqlarr['id'] = intval($row['id']);
                 $setsqlarr['uid']=intval($row['uid']);
 		$setsqlarr['companyname']=$row['corptitle'];
+                
                 //公司性质：国有、私有等
-                /*
-shiphr:
- 10	国有企业	State-owned Enterprise
-11	集体企业	Collective Enterprise
-12	外商独资	Wholly Foreign-owned Enterprise
-13	中外合资	Chinese-foreign Joint Venture
-14	民营企业	Non-government Enterprise
-15	股份制企业	Joint-equity Enterprise
-16	行政机关	Administrative Organ
-17	社会团体	Social Organization
-18	事业单位	Institution
-19	其他	Other
-                 */
-		$nature = convert_company_nature($row['corptype']);//$row['m_ecoclass']
+		$nature = get_company_nature($row['corptype']);//$row['m_ecoclass']
                 $setsqlarr['nature']=$nature['id'];
 		$setsqlarr['nature_cn']=$nature['cn'];
                 	   
-		$trade=convert_company_trade($row['industry']);//get_company_trade($row['m_trade']); 
+		$trade=get_company_trade($row['industry']);//get_company_trade($row['m_trade']); 
 		$setsqlarr['trade']=$trade['id'];
 		$setsqlarr['trade_cn']=$trade['cn'];
                 
@@ -56,7 +44,7 @@ shiphr:
                  * "4">1000人以上
                  */
                 $corpsize = ($row['corpsize']);
-		$scale=convert_company_scale($corpsize);//get_company_scale($row['m_workers']);
+		$scale=get_company_scale($corpsize);//get_company_scale($row['m_workers']);
 		$setsqlarr['scale']=$scale['id'];
 		$setsqlarr['scale_cn']=$scale['cn'];
 		
@@ -100,48 +88,4 @@ shiphr:
 		$i++;
 	}
 exit("ok,{$i}");
-
-/**
- * 公司性质
- * @param type $nature_id
- * @param type $nature_title
- * @return type
- */
-function convert_company_nature($nature_id,$nature_title){
-    return array('id'=>0,'cn'=>'未知-请编辑对应关系');
-}
-
-/**
- * 公司规模
- * @param type $scale_id
- * @param type $scale_title
- * @return type
- */
-function convert_company_scale($scale_id,$scale_title){
-    /*
-     *    0:1-49人
-                 * 1:50-99人
-                 * "2">100-499人
-                 * "3">500-999人
-                 * "4">1000人以上
-     */
-    return array('id'=>0,'cn'=>'未知-请编辑对应关系');
-}
-
-function convert_company_trade($trade_id){
-    /* shiphr
-    1065	船舶
-1066	海洋工程
-1067	航运
-1068	游艇
-1069	其他
-1073	大型设备/机电设备/重工业
-1927	船舶与海洋工程
-1928	港口航道与海岸工程
-1929	航海仪器
-1930	工程设计
-1931	能源
-*/
-    return array('id'=>0,'cn'=>'未知，请编写行业处理函数');
-}
 ?>

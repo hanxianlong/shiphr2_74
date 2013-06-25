@@ -99,8 +99,9 @@ $sp = new SPWord();
             //shiphr emolumenttype薪资类型，emolument：薪资范围
             //array("面议", "2000～3000/月", "3000～4000/月", "4000～6000/月", "6000～8000/月", "8000～10000/月", "10000～15000/月", "15000～20000/月", "20000～30000/月", "30000以上/月")
           //  $wage=get_wage(get_wage_str($row['emolument']));
-            $setsqlarr['wage']=get_wage($row['emolument']);//$wage['id'];
-            $setsqlarr['wage_cn']=get_wage_str($row['emolument']);
+            $wage = get_wage($row['emolument']);
+            $setsqlarr['wage']=$wage['id'];//$wage['id'];
+            $setsqlarr['wage_cn']=$wage['cn'];
 
             $setsqlarr['graduate']=0;
             $setsqlarr['addtime']=conversion_datefm($row['h_adddate'],2);

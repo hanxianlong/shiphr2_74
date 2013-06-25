@@ -103,7 +103,9 @@ $sp = new SPWord();
 				$setsqlarr['district']=$city['district'];
 				$setsqlarr['sdistrict']=$city['sdistrict'];
 				$setsqlarr['district_cn']=$city['district_cn'];
-				$wage=get_wage(get_wage_str($row['r_pay']));
+                                
+                                //TODO 根据字段值进行修改,确认r_pay字段是否保存的薪资范围的id
+				$wage=get_wage($row['r_pay']);
 				$setsqlarr['wage']=$wage['id'];
 				$setsqlarr['wage_cn']=$wage['cn'];
 				$setsqlarr['trade']="";

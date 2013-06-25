@@ -195,48 +195,57 @@ function search_str($arr,$str,$arrinname,$n=30)
 
 /**
  * 获取公司性质（国有、私人之类），仅在conversion_company.php文件中使用到
+shiphr:
+10	国有企业	State-owned Enterprise
+11	集体企业	Collective Enterprise
+12	外商独资	Wholly Foreign-owned Enterprise
+13	中外合资	Chinese-foreign Joint Venture
+14	民营企业	Non-government Enterprise
+15	股份制企业	Joint-equity Enterprise
+16	行政机关	Administrative Organ
+17	社会团体	Social Organization
+18	事业单位	Institution
+19	其他	Other
  * @global mysql $db
  * @param type $str
  * @return string
  */
-function get_company_nature($str=NULL)
+function get_company_nature($nature_id)
 {
-	global $db;
-	$default=array("id"=>0,"cn"=>'未知');
-	if (empty($str))
-	{
-		return $default;
-	}
-	 
-        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_company_type'";
-        $info=$db->getall($sql);
-        $return=search_str($info,$str,"c_name");
-        if ($return)
-        {
-            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-        }
-        return $default;
+      $nature_array = array(
+        10=>array('id'=>46,'cn'=>'国有企业'),11=>array('id'=>47,'cn'=>'集体企业'),12=>array('id'=>48,'cn'=>'外商独资'),
+        13=>array('id'=>49,'cn'=>'中外合资'),14=>array('id'=>50,'cn'=>'民营企业'),15=>array('id'=>51,'cn'=>'股份制企业'),
+        16=>array('id'=>52,'cn'=>'行政机关'),17=>array('id'=>53,'cn'=>'社会团体'),18=>array('id'=>54,'cn'=>'事业单位'),
+        19=>array('id'=>55,'cn'=>'其他')
+        );
+    return $nature_array[$nature_id];
 }
 
 
-function get_company_trade($str=NULL)
+function get_company_trade($trade_id)
 {
-	global $db;
-	$default=array("id"=>0,"cn"=>'未知');
-	if (empty($str))
-	{
-		return $default;
-	}
-	 
-        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_trade'";
-        $info=$db->getall($sql);
-        $return=search_str($info,$str,"c_name");
-        if ($return)
-        {
-        return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-        }
-        return $default;
-        
+       /* shiphr
+    1065	船舶
+1066	海洋工程
+1067	航运
+1068	游艇
+1069	其他
+1073	大型设备/机电设备/重工业
+1927	船舶与海洋工程
+1928	港口航道与海岸工程
+1929	航海仪器
+1930	工程设计
+1931	能源
+*/
+      $trade_array = array(
+        1065=>array('id'=>1,'cn'=>'船舶'),1066=>array('id'=>2,'cn'=>'海洋工程'),
+        1067=>array('id'=>5,'cn'=>'航运'),1068=>array('id'=>6,'cn'=>'游艇'),
+        1069=>array('id'=>11,'cn'=>'其他'),1073=>array('id'=>4,'cn'=>'大型设备/机电设备/重工业'),
+        1927=>array('id'=>3,'cn'=>'船舶与海洋工程'),1928=>array('id'=>7,'cn'=>'港口航道与海岸工程'),
+        1929=>array('id'=>8,'cn'=>'航海仪器'),1930=>array('id'=>9,'cn'=>'工程设计'),
+        1931=>array('id'=>10,'cn'=>'能源')
+        );
+    return $trade_array[$trade_id];
 }
 
 /**
@@ -245,23 +254,21 @@ function get_company_trade($str=NULL)
  * @param type $str
  * @return string
  */
-function get_company_scale($str=NULL)
+function get_company_scale($scale_id)
 {
-	global $db;
-	$default=array("id"=>0,"cn"=>'未知');
-	if (empty($str))
-	{
-		return $default;
-	}
-	 
-        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_scale'";
-        $info=$db->getall($sql);
-        $return=search_str($info,$str,"c_name");
-        if ($return)
-        {
-            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-        }
-        return $default;
+     /*
+     *    0:1-49人
+                 * 1:50-99人
+                 * "2">100-499人
+                 * "3">500-999人
+                 * "4">1000人以上
+     */
+    $scale_array = array(
+        0=>array('id'=>80,'cn'=>'1-49人'),1=>array('id'=>81,'cn'=>'50-99人'),
+        2=>array('id'=>82,'cn'=>'100-499人'),3=>array('id'=>83,'cn'=>'500-999人'),
+        4=>array('id'=>84,'cn'=>'1000-9999人')
+        );
+    return $scale_array[$scale_id];
 }
 
 
@@ -329,18 +336,6 @@ function get_jobs_cat($str)
         {
             return $default;
         }
-	/*	$sql = "select id,parentid,categoryname from ".table('category_jobs')." WHERE parentid<>0";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"categoryname");
-		if ($return)
-		{
-                    return array("category"=>$return['parentid'],"subclass"=>$return['id'],"category_cn"=>$return['categoryname']);		
-		}
-		else
-		{
-                    return $default;
-		}
-         */ 
 }
 
 /**
@@ -351,46 +346,21 @@ function get_jobs_cat($str)
  * hr:$jobtypes = array( "无", "全职", "兼职", "临时", "实习" );
  * TODO:将类型id与74cms中的类型正确对应起来
  */
-function get_jobs_nature($str)
+function get_jobs_nature($nature_id)
 {
-	global $db;
-	switch ($str)
-	{
-	case "1":
-            return array(-1,'全职');
-	case "2":
-            return array(-1,"兼职");
-            break;
-        case "0":
-	case "3":
-            return array(-1,"不限");
-            break;
-	}
-        
-        /*
-	$sql = "select * from ".table('category')." where c_alias='QS_jobs_nature' AND c_name='{$str}'";
-	$cid=$db->getone($sql);
-	if ($cid)
-	{
-            return array($cid['c_id'],$cid['c_name']);
-	}
-	else
-	{
-		$sql = "select * from ".table('category')." where c_alias='QS_jobs_nature' ORDER BY c_id ASC LIMIT 1";
-		$cid=$db->getone($sql);
-		return array($cid['c_id'],$cid['c_name']);
-	}
-         */
+     $nature_array = array(
+        0=>array('id'=>62,'cn'=>'全职'),1=>array('id'=>62,'cn'=>'全职'),
+        2=>array('id'=>63,'cn'=>'兼职'),3=>array('id'=>64,'cn'=>'临时'),
+        4=>array('id'=>181,'cn'=>'实习')
+        );
+    return $nature_array[$nature_id];
 }
 
 function get_sex($str)
 {
    $id= intval($str);
    $gendorarray=array(1=>'男',2=>'女',3=>'不限');
-   if(array_key_exists($str, $gendorarray)){
-       return $gendorarray[$str];
-   }
-   return $gendorarray[3];
+   return $gendorarray[$str];
 }
 
 /**
@@ -411,145 +381,60 @@ function get_edu($id=NULL)
 7	硕士	Master
 8	博士	Doctorate
      */
-   $edu_array = array(1=>array(-1,'初中'),
-       2=>array('id'=>-1,'cn'=>'高中'),
-       3=>array('id'=>-1,'cn'=>'职高/技校'),
-       4=>array('id'=>-1,'cn'=>'中专'),
-       5=>array('id'=>-1,'cn'=>'大专'),
-       6=>array('id'=>-1,'cn'=>'大学本科'),
-       7=>array('id'=>-1,'cn'=>'硕士'),
-       8=>array('id'=>-1,'cn'=>'博士'),
+   $edu_array = array(1=>array(65,'初中'),
+       2=>array('id'=>66,'cn'=>'高中'),
+       3=>array('id'=>67,'cn'=>'职高/技校'),
+       4=>array('id'=>68,'cn'=>'中专'),
+       5=>array('id'=>69,'cn'=>'大专'),
+       6=>array('id'=>70,'cn'=>'大学本科'),
+       7=>array('id'=>71,'cn'=>'硕士'),
+       8=>array('id'=>72,'cn'=>'博士'),
        );
     return $edu_array[$id];
-    /*
-	global $db;
-	$default=array("id"=>0,"cn"=>'未知');
-	if (empty($str))
-	{
-            return $default;
-	}
-        
-        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_education'";
-        $info=$db->getall($sql);
-        $return=search_str($info,$str,"c_name");
-        if ($return)
-        {
-            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-        }
-        return $default; */
 }
 
 /**
- *  //工作经验:0－不限  1、2、3、5、10：N年以上
+ *  //工作经验:0－不限  
+ * 1 一年以上
+ * 2 二年以上
+ * 3 3年以上
+ * 5 5年以上
+ * 10 10年以上
  * @global mysql $db
  * @param type $str
  * @return int
  */
-function get_exp($str=NULL)
+function get_exp($exp_id)
 {
-	global $db;
-	switch ($str)
-	{
-            case "0":$str="无经验"; break;
-            case "-1":$str="无经验";break;
-            default :$str=$str."年";break;
-	}
-	$default=array("id"=>0,"cn"=>'未知');
-	if (empty($str))
-	{
-		return $default;
-	}
-        $sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_experience'";
-        $info=$db->getall($sql);
-        $return=search_str($info,$str,"c_name");
-        if ($return)
-        {
-            return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-        }
-        return $default;
+     $exp_array = array(0=>array(74,'不限'),
+       1=>array('id'=>75,'cn'=>'一年以上'),
+       2=>array('id'=>76,'cn'=>'两年以上'),
+       3=>array('id'=>77,'cn'=>'三年以上'),
+       5=>array('id'=>78,'cn'=>'五年以上'),
+       10=>array('id'=>79,'cn'=>'十年以上')
+       );
+    return $edu_array[$exp_id];
 }
-function get_wage_str($id=0)
-{
-    $wage_array = array("面议", "2000～3000/月", "3000～4000/月", "4000～6000/月", "6000～8000/月", "8000～10000/月", "10000～15000/月", "15000～20000/月", "20000～30000/月", "30000以上/月");
-    return $wage_array[$id];
-/*	switch ($str)
-	{
-            case "1":return "1000~1500元/月";
-            case "2":return "1000~1500元/月";
-            case "3":return "1000~1500元/月";
-            case "4":return "1000~1500元/月";
-            case "5":return "1500~2000元/月";
-            case "6":return "2000~3000元/月";
-            case "7":return "2000~3000元/月";
-            case "8":return "3000~5000元/月";
-            case "9":return "3000~5000元/月";
-            case "10":return "3000~5000元/月";
-            case "11":return "3000~5000元/月";
-            case "12":return "1万以上/月";
-            case "13":return "1万以上/月";
-            case "14":return "1万以上/月";
-            default :return $str;
-	}
- 	*/
-}
-
 /**
  * 根据shiphr中的工资范围id设置74cms的工资范围id
  * @global mysql $db
  * @param type $str
  * @return int
  */
-function get_wage($str=NULL)
+function get_wage($id)
 {
-    $id = intval($str);
-    switch($id){
-        case 0:
-            return -1;
-            break;
-        case 1:
-            return -1;
-            break;
-        case 2:
-            return -1;
-            break;
-        case 3:
-            return -1;
-            break;  
-        case 4:
-            return -1;
-            break;
-        case 5:
-            return -1;
-            break;
-        case 6:
-            return -1;
-            break;
-        case 7:
-            return -1;
-            break;
-    }
-    return;
-    /**
-	global $db;
-	$default=array("id"=>0,"cn"=>'未知');
-	if (empty($str))
-	{
-		return $default;
-	}
-	else
-	{
-		$sql = "select c_id,c_name from ".table('category')."  where c_alias='QS_wage'";
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"c_name");
-		if ($return)
-		{
-		return array("id"=>$return['c_id'],"cn"=>$return['c_name']);
-		}
-		else
-		{
-		return $default;
-		}
-	}**/
+       $wage_array = array(0=>array('id'=>55,'cn'=>'面议'),
+        1=>array('id'=>58,'cn'=>"2000～3000/月"),
+        2=>array('id'=>59,'cn'=>"3000～4000/月"),
+        3=>array('id'=>60,'cn'=>"4000～6000/月"),
+        4=>array('id'=>61,'cn'=>"6000～8000/月"),
+        5=>array('id'=>176,'cn'=>"8000～10000/月"), 
+        6=>array('id'=>177,'cn'=>"10000～15000/月"), 
+        7=>array('id'=>178,'cn'=>"15000～20000/月"),
+        8=>array('id'=>179,'cn'=> "20000～30000/月"),
+        9=>array('id'=>180,'cn'=>"30000以上/月")
+        );
+    return $wage_array[$id];
 }
 
 
