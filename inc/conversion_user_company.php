@@ -42,6 +42,15 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
                 23	灵便版
                 24	普通会员
              */
+           /***
+            *
+            * 
+shiphr可以对个人企业会员设置权限，对应字段：
+1、职位库 m_hirenums 总个数  m_hirenum 剩余个数
+2、人才库  m_expertnums 总个数 m_expertsnum 剩余个数
+3、查看简历  m_contactnums 总个数  m_contactsnum 剩余个数
+            */
+           
             /*$groupid=$row['m_group_id'];
                 set_members_setmeal($company_id, $groupid);
              */
