@@ -89,12 +89,12 @@ function conversion_register($userid,$username,$password,$passwordtype=0,$member
 	$setsqlarr['mobile']=$mobile;
         //TODO 邮箱认证
         //手机号认证 
-	$insert_id=conversion_inserttable(table('members'),$setsqlarr,true,true);
+	$insert_id = conversion_inserttable(table('members'),$setsqlarr,false,true);//不需要返回inserted id
         
         if($member_type=="1")
         {
-                if(!$db->query("REPLACE INTO ".table('members_points')." (uid) VALUES ('{$insert_id}')"))  return false;
-                if(!$db->query("REPLACE INTO ".table('members_setmeal')." (uid) VALUES ('{$insert_id}')")) return false;					
+                if(!$db->query("REPLACE INTO ".table('members_points')." (uid) VALUES ('{$userid}')"))  return false;
+                if(!$db->query("REPLACE INTO ".table('members_setmeal')." (uid) VALUES ('{$userid}')")) return false;					
         }
         return $insert_id;
 }
