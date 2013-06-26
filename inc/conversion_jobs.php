@@ -92,7 +92,7 @@ $sp = new SPWord();
             $setsqlarr['education_cn']=$education['cn'];
 
             //工作经验:0－不限  1、2、3、5、10：N年以上
-            $experience=get_exp($row['seniority']);
+            $experience=get_experience($row['seniority']);
             $setsqlarr['experience']=$experience['id'];
             $setsqlarr['experience_cn']=$experience['cn'];
 

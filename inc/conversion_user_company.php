@@ -66,14 +66,14 @@ function set_members_setmeal($uid,$setmealid)
 	$setsqlarr['setmeal_name']=$setmeal['setmeal_name'];
 	$setsqlarr['days']=$setmeal['days'];
 	$setsqlarr['starttime']=$timestamp;
-		if ($setmeal['days']>0)
-		{
-		$setsqlarr['endtime']=strtotime("".$setmeal['days']." days");
-		}
-		else
-		{
-		$setsqlarr['endtime']="0";	
-		}
+        if ($setmeal['days']>0)
+        {
+            $setsqlarr['endtime']=strtotime("".$setmeal['days']." days");
+        }
+        else
+        {
+            $setsqlarr['endtime']="0";	
+        }
 	$setsqlarr['expense']=$setmeal['expense'];
 	$setsqlarr['jobs_ordinary']=$setmeal['jobs_ordinary'];
 	$setsqlarr['download_resume_ordinary']=$setmeal['download_resume_ordinary'];

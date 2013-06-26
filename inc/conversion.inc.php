@@ -404,7 +404,7 @@ function get_edu($id=NULL)
  * @param type $str
  * @return int
  */
-function get_exp($exp_id)
+function get_experience($exp_id)
 {
      $exp_array = array(0=>array(74,'不限'),
        1=>array('id'=>75,'cn'=>'一年以上'),
