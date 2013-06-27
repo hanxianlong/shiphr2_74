@@ -1,0 +1,4 @@
+1¡¢members_points
+2¡¢members_setmeal
+alter table `qs32_members_points` add unique unique_uid (`uid`);
+alter table `qs32_members_setmeal` add unique unique_uid (`uid`);
