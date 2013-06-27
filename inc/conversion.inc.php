@@ -1,4 +1,6 @@
 <?php
+//header("Content-type: text/html; charset=utf-8"); 
+header("Content-type:text/html; charset=GB2312");
 require_once(dirname(__FILE__).'/mysql.class.php');
 $srcdbhost=trim($_GET['srcdbhost']);
 $srcdbuser=trim($_GET['srcdbuser']);
@@ -61,15 +63,15 @@ function conversion_register($userid,$username,$password,$passwordtype=0,$member
 	{
             return -1;
 	}
-	elseif (!empty($ck_username))
+        //不管用户是否存在，都直接转换
+	/*elseif (!empty($ck_username))
 	{
             return -2;
 	}
 	elseif (!empty($ck_email))
 	{
             return -3;
-	}
-	
+	}*/ 
 	$pwd_hash=randstr();
 	if ($passwordtype==0)
 	{
@@ -79,6 +81,7 @@ function conversion_register($userid,$username,$password,$passwordtype=0,$member
 	{
 	$password_hash=$password;
 	}
+        $setsqlarr['uid']=$userid;
 	$setsqlarr['username']=$username;
 	$setsqlarr['password']=$password_hash;
 	$setsqlarr['pwd_hash']=$pwd_hash;
@@ -89,13 +92,14 @@ function conversion_register($userid,$username,$password,$passwordtype=0,$member
 	$setsqlarr['mobile']=$mobile;
         //TODO 邮箱认证
         //手机号认证 
-	$insert_id = conversion_inserttable(table('members'),$setsqlarr,false,true);//不需要返回inserted id
-        
+	$insert_id = conversion_inserttable(table('members'),$setsqlarr,true,true);
+       
         if($member_type=="1")
         {
                 if(!$db->query("REPLACE INTO ".table('members_points')." (uid) VALUES ('{$userid}')"))  return false;
-                if(!$db->query("REPLACE INTO ".table('members_setmeal')." (uid) VALUES ('{$userid}')")) return false;					
+                if(!$db->query("REPLACE INTO ".table('members_setmeal')." (uid) VALUES ('{$userid}')")) return false;
         }
+         
         return $insert_id;
 }
 

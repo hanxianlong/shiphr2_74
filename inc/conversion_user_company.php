@@ -3,6 +3,7 @@
 error_reporting(E_ERROR);
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
+ 
 	$i=0;
         $setmeal_cache=array();
         //公司会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
