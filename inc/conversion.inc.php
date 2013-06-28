@@ -1,7 +1,11 @@
 <?php
 //header("Content-type: text/html; charset=utf-8"); 
+date_default_timezone_set('Asia/Chongqing');
 header("Content-type:text/html; charset=GB2312");
 require_once(dirname(__FILE__).'/mysql.class.php');
+define("ROOT_PATH", dirname(dirname(__FILE__)));
+define("LOG_COMMIT_SIZE",3000);//每1000个提交一次日志信息
+
 $srcdbhost=trim($_GET['srcdbhost']);
 $srcdbuser=trim($_GET['srcdbuser']);
 $srcdbpass=trim($_GET['srcdbpass']);
@@ -417,7 +421,7 @@ function get_experience($exp_id)
        5=>array('id'=>78,'cn'=>'五年以上'),
        10=>array('id'=>79,'cn'=>'十年以上')
        );
-    return $edu_array[$exp_id];
+    return $exp_array[$exp_id];
 }
 /**
  * 根据shiphr中的工资范围id设置74cms的工资范围id
@@ -460,5 +464,84 @@ function conversion_add_resume_jobs($pid,$uid,$str)
                         return false;
 		}
 	}
+}
+ 
+/**
+ * 写日志
+ * @param string $file
+ * @param mixed $msg
+ */
+function log_info($module_name,$msgs){
+    if(is_array($msgs)){
+        $content=implode("\n",$msgs);
+    }
+    //$msg .= "\t".date("Y-m-d H:i:s");
+    file_put_contents(ROOT_PATH. '/logs/'.$module_name.'.txt', $content ."\n",FILE_APPEND);
+}
+ 
+function lock_module($module_name){
+    $path =ROOT_PATH."/locked/$module_name.lock";
+    if(file_exists($path)){
+        die("$module_name 已被锁定，在进行本次转换之前，请确认上次转换正常结束！");
+    }
+    $f=fopen($path,"w+");
+    fclose($f);
+}
+
+class stopwatch{
+    private $start_time;
+    private $end_time;
+   public  function start(){
+        list($a,$b)=explode(' ', microtime());
+        $this->start_time=$a+$b;
+    }
+    
+    public function stop(){
+         list($a,$b)=explode(' ', microtime());
+        $this->end_time=$a+$b;
+    }
+    
+    /**
+     * milli seconds
+     * @return type
+     */
+   public function elapsed(){
+        return ($this->end_time-$this->start_time)*1000;
+    }
+}
+
+class mylogger{
+    private $module_name;
+    private $msgs_cache;
+    private $i;
+    public function __construct($module_name){
+        $this->module_name=$module_name;
+        $this->msgs_cache = array();
+        $this->i=0;
+    }
+    
+    public function put_msg($msg,$output_immediatly=false){
+        $this->msgs_cache[] = $msg ."\t". date("Y-m-d G:i:s");
+        $this->i++;
+        if($output_immediatly && count($this->msgs_cache)>LOG_COMMIT_SIZE){
+            $this->msgs_cache[]="processed $this->i records";
+            log_info($this->module_name, $this->msgs_cache);
+            
+            unset($this->msgs);
+        }
+    }
+    
+    public function flush_all(){
+         $this->msgs_cache[]="processed $this->i records";
+        log_info($this->module_name, $this->msgs_cache);
+        unset($this->msgs_cache);
+    }
+    
+    function __destruct() {
+        if(!empty($this->msgs_cache))
+        {
+            $this->flush_all();
+        }
+    }
 }
 ?>

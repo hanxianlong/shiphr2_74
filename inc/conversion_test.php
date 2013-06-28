@@ -1,70 +1,26 @@
 <?php
 @set_time_limit(0);
+ 
 //error_reporting(E_ERROR);
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
+$i=0;
+$module_name='test';
+lock_module($module_name);
+$timer = new stopwatch();
+$timer->start();
+
+$mylogger = new mylogger($module_name);
+while($i<=2){
+   $mylogger->put_msg('²âÊÔ'.$i);
+    $i++;
+}
+//$mylogger->flush_all();
+// unset($mylogger);
+$timer->stop();
+echo 'elapsed:' . $timer->elapsed();
+
 //http://myconverter.shiyishi.tk/inc/conversion_test.php?qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=74cms32&qspre=qs32_&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=74cms32&srcpre=qs32_&srcdbcharset=GBK
 $setmeal_cache = array();
-
 $count = $db->getone('select count(*) as c from '. table('jobs_contact') .' where pid=1');
-print_r($count);
-die();
-$d = $_GET['a'];
-
-switch($d){
-    case "1":$name="start with a";
-    case "2": $name="start with b";
-    case "3":$name="start with c";
-}
-
-echo $name;
-    
-$i=0;
-foreach(array(1,2,3,4,5,1) as $key){
-    //get_meal($key);
-    //$i++;
-    echo "$key<br/>";
-}
- 
-function get_meal($meal_id){
-	global $db,$setmeal_cache;
-        
-        if(array_key_exists($meal_id, $setmeal_cache)){
-            $setmeal = $setmeal_cache[$meal_id];
-            
-            print_r($setmeal);
-            print('from cache<br/>');
-        }
-        else{
-            $setmeal_cache[$meal_id]=$db->getone("select * from ".table('setmeal')." WHERE id = ".intval($meal_id)." AND display=1 LIMIT 1");    
-            print_r($setmeal_cache[$meal_id]);
-            print('from db<br/>');
-        }
-}
-
-function get_cityx($str)
-{
-	global $db;
-	$default=array("district"=>0,"sdistrict"=>0,"district_cn"=>'Î´Öª');
-	if (empty($str))
-	{
-		return $default;
-	}
-	else
-	{
-		$sql = "select id,parentid,categoryname from ".table('category_district')." WHERE parentid<>0";
-                
-		$info=$db->getall($sql);
-		$return=search_str($info,$str,"categoryname");
-                
-		if ($return)
-		{
-                    return array("district"=>$return['parentid'],"sdistrict"=>$return['id'],"district_cn"=>$return['categoryname']);		
-		}
-		else
-		{
-                    return $default;
-		}
-	}
-}
 ?>

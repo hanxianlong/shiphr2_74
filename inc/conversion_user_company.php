@@ -3,18 +3,34 @@
 error_reporting(E_ERROR);
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
- 
+$module_name="user_company";
+
+//尝试锁定当前模块,如果锁文件已经存在，则会终止运行
+lock_module($module_name);
+$mylogger = new mylogger($module_name);
 	$i=0;
         $setmeal_cache=array();
         //公司会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
 	//$sql="select * from `{$srcpre}member` where m_typeid=2";
         //公司会员套餐信息如何转换？
-        $sql="SELECT s.*,unix_timestamp(m_startdate) as setmeal_starttime,unix_timestamp(m_enddate) as setmeal_endtime,f.*,m.* from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 and s.uid=m.uid and c.uid=s.uid;";
         
-	$result = $dbsrc->query($sql);
+        $sql="SELECT s.*,unix_timestamp(m_startdate) as setmeal_starttime,unix_timestamp(m_enddate) as setmeal_endtime,f.*,m.* from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 and s.uid=m.uid and c.uid=s.uid";
+        $countsql = 'select count(*) as total from (SELECT s.* from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 and s.uid=m.uid and c.uid=s.uid';
+         
+        if(isset($_GET['start_uid'])){
+            $uid = intval($_GET['start_uid']);
+            $sql .=" and c.uid>$uid;";
+            $countsql .=" and c.uid>$uid;";
+        }
+        $countsql .=");";
+        $count = $dbsrc->getone($countsql);
+        $msgs[] = 'total:' . $count['total'] . date("Y-m-d G:i:s");
+        log_info($module_name, $msgs);
+        
+        $result = $dbsrc->query($sql);
 	while($row = $dbsrc->fetch_array($result))
 	{
-            //loginip与注册ip保持一致git 
+            //loginip与注册ip保持一致
 		//conversion_register($row['m_login'],$row['m_pwd'],1,1,$row['m_email'],$row['m_loginip'],conversion_datefm($row['m_regdate'],2),$row['m_mobile']);
             $uid= $row['uid'];
             $username=$row['username'];
@@ -28,7 +44,8 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
             //                  $username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile=''
            $company_id=  conversion_register($uid,$username,$password,$passwordtype,$member_type,$email,$regip,$add_time,$mobile);
             if($company_id != $uid){
-                die("转换失败，插入返回的id与插入的id不一致：\$company_id:$uid , \$inserted_id:$company_id");
+                $mylogger->put_msg("转换失败，插入返回的id与插入的id不一致：\$company_id:$uid , \$inserted_id:$company_id",true);
+                break;
             }
             //TODO 转换会员的套餐信息,$groupid为目前企业的套餐信息
             //qs32_members_setmeal
@@ -63,7 +80,10 @@ shiphr可以对个人企业会员设置权限，对应字段：
             set_members_setmeal($company_id, $setmeal_id,$jobs_ordinary,$talent_pool,$download_resume_ordinary,$starttime,$endtime);
             
             $i++;
+            $mylogger->put_msg($uid);
 	}
+          $mylogger->flush_all();
+         
 exit("ok,{$i}");
 
 /*
