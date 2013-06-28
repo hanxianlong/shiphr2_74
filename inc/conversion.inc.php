@@ -6,6 +6,9 @@ require_once(dirname(__FILE__).'/mysql.class.php');
 define("ROOT_PATH", dirname(dirname(__FILE__)));
 define("LOG_COMMIT_SIZE",3000);//每1000个提交一次日志信息
 
+require_once(ROOT_PATH.'/utils/stopwatch.class.php');
+require_once(ROOT_PATH.'/utils/mylogger.class.php');
+
 $srcdbhost=trim($_GET['srcdbhost']);
 $srcdbuser=trim($_GET['srcdbuser']);
 $srcdbpass=trim($_GET['srcdbpass']);
@@ -486,62 +489,5 @@ function lock_module($module_name){
     }
     $f=fopen($path,"w+");
     fclose($f);
-}
-
-class stopwatch{
-    private $start_time;
-    private $end_time;
-   public  function start(){
-        list($a,$b)=explode(' ', microtime());
-        $this->start_time=$a+$b;
-    }
-    
-    public function stop(){
-         list($a,$b)=explode(' ', microtime());
-        $this->end_time=$a+$b;
-    }
-    
-    /**
-     * milli seconds
-     * @return type
-     */
-   public function elapsed(){
-        return ($this->end_time-$this->start_time)*1000;
-    }
-}
-
-class mylogger{
-    private $module_name;
-    private $msgs_cache;
-    private $i;
-    public function __construct($module_name){
-        $this->module_name=$module_name;
-        $this->msgs_cache = array();
-        $this->i=0;
-    }
-    
-    public function put_msg($msg,$output_immediatly=false){
-        $this->msgs_cache[] = $msg ."\t". date("Y-m-d G:i:s");
-        $this->i++;
-        if($output_immediatly && count($this->msgs_cache)>LOG_COMMIT_SIZE){
-            $this->msgs_cache[]="processed $this->i records";
-            log_info($this->module_name, $this->msgs_cache);
-            
-            unset($this->msgs);
-        }
-    }
-    
-    public function flush_all(){
-         $this->msgs_cache[]="processed $this->i records";
-        log_info($this->module_name, $this->msgs_cache);
-        unset($this->msgs_cache);
-    }
-    
-    function __destruct() {
-        if(!empty($this->msgs_cache))
-        {
-            $this->flush_all();
-        }
-    }
 }
 ?>
