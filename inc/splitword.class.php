@@ -47,9 +47,10 @@ class SPWord
 	{
 		$str=trim($str);
 		$length = strlen(trim($str)); 
+                $retstr='';
 		for ($i=0;$i<$length;$i++)
 		{ 
-        $retstr[]= ord($str[$i]) > 127 ? trim($str[$i].$str[++$i]) : trim($str[$i]); 
+                    $retstr[]= ord($str[$i]) > 127 ? trim($str[$i].$str[++$i]) : trim($str[$i]); 
    		}
 		return	 $this->matchesword($retstr);
 	}

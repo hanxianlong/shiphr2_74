@@ -1,18 +1,45 @@
 <?php
-@set_time_limit(0);
-error_reporting(E_ERROR);
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
+$module_name="company_profile";
+//http://myconverter.shiyishi.tk/inc/conversion_company.php?time=1372523662246&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
+
+//尝试锁定当前模块,如果锁文件已经存在，则会终止运行
+mylocker::try_lock_module($module_name);
+$mylogger = new mylogger($module_name);
+
 	$i=0;
         //公司会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
 	//$sql="select * from `{$srcpre}member` where m_typeid=2";
-        $sql="select c.*,,(select p_name from {$srcpre}job_provinceandcity where p_id=c.corpprovince) as `provincename`,(select p_name from {$srcpre}job_provinceandcity where p_id=c.corpcity) as `cityname` from `{$srcpre}company` c";// where m_typeid=2";
+        //查询出所有corptype不为0的企业信息(当corptype为0时，说明企业信息未初始化，此时无需处理)
+        $sql="select c.*,(select p_name from {$srcpre}job_provinceandcity where p_id=c.corpprovince) as `provincename`,(select p_name from {$srcpre}job_provinceandcity where p_id=c.corpcity) as `cityname` from `{$srcpre}job_company` c where c.corptype>0";
+          $countsql = "select count(*) as total from (select c.*,(select p_name from {$srcpre}job_provinceandcity where p_id=c.corpprovince) as `provincename`,(select p_name from {$srcpre}job_provinceandcity where p_id=c.corpcity) as `cityname` from `{$srcpre}job_company` c  where c.corptype>0";
+         
+        if(isset($_GET['start_id'])){
+            $start_id = intval($_GET['start_id']);
+            $sql .=" and c.id>$start_id";
+            $countsql .=" and c.id>$start_id";
+        }
+       
+        if(isset($_GET['end_id'])){
+            $end_id = intval($_GET['end_id']);
+            $sql .=" and c.id<$end_id";
+            $countsql .=" and c.id<$end_id";
+        }
+        $countsql .=") as x;";
+       
+        $count = $dbsrc->getone($countsql);
+        $to_be_converted_count=$count['total'];
+        $total_msg = "total:$to_be_converted_count";
+        $mylogger->put_msg_to_disk($total_msg);
+        
 	$result = $dbsrc->query($sql);
 	while($row = $dbsrc->fetch_array($result))
 	{
 		//$userinfo=get_user_inuid($row['uid']);
 		//$setsqlarr['uid']=intval($userinfo['uid']);
-                $setsqlarr['id'] = intval($row['id']);
+            $id = intval($row['id']);
+                $setsqlarr['id'] = $id;
                 $setsqlarr['uid']=intval($row['uid']);
 		$setsqlarr['companyname']=$row['corptitle'];
                 
@@ -20,8 +47,8 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 		$nature = get_company_nature($row['corptype']);//$row['m_ecoclass']
                 $setsqlarr['nature']=$nature['id'];
 		$setsqlarr['nature_cn']=$nature['cn'];
-                	   
-		$trade=get_company_trade($row['industry']);//get_company_trade($row['m_trade']); 
+              
+		$trade=get_trade($row['industry']);//get_company_trade($row['m_trade']); 
 		$setsqlarr['trade']=$trade['id'];
 		$setsqlarr['trade_cn']=$trade['cn'];
                 
@@ -31,10 +58,12 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
                 
 		$provincename=$row['provincename'];
                 $cityname = $row['cityname'];
-		$city=get_city($cityname);
-		$setsqlarr['district']=$city['district'];
-		$setsqlarr['sdistrict']=$city['sdistrict'];
-		$setsqlarr['district_cn']=$provincename. '/' .$city['district_cn'];
+                $province_id=$row['corpprovince'];
+                $city_id=$row['corpcity'];
+		//$city=get_city($cityname);
+		$setsqlarr['district']=$province_id;//$city['district'];
+		$setsqlarr['sdistrict']=$city_id;//$city['sdistrict'];
+		$setsqlarr['district_cn']=$provincename. '/' .$cityname;
                 //corpsize:
                 /*
                  0:1-49人
@@ -68,7 +97,7 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
                 
                 //refreshtime更新时间没有
 		$setsqlarr['refreshtime']=$setsqlarr['addtime'];
-		$setsqlarr['audit']=1;
+		$setsqlarr['audit']=COMPANY_DEFAULT_AUDIT;//默认认证状态
                
 		/*
                  $setsqlarr['email']=$row['corpzipcode'];//邮编
@@ -86,6 +115,12 @@ require_once(dirname(__FILE__).'/conversion.inc.php');
 		//exit();
 		conversion_inserttable(table('company_profile'),$setsqlarr,false,true);
 		$i++;
+                
+               $mylogger->put_msg($id);
 	}
+        
+        $mylogger->flush_all();
+        $mylogger->log_complete_module("$module_name finished, 应转:$to_be_converted_count ,实际转:$i");
+        
 exit("ok,{$i}");
 ?>

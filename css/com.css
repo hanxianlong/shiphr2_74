@@ -34,10 +34,10 @@ li{list-style: none; padding:0px;}
 .step3{width:762px; padding-top:15px; margin:0  auto;}
 .step3 .wait { padding-left:70px;}
 .step3 .wait ul{ font-size:14px; color:#333333}
-.step3 .wait ul li{ list-style: none; padding:0px; height:25px ; line-height:25px;/* background:url(../images/li.gif)no-repeat 0px 6px*/ ; padding-left:20px; color:#999999}
+.step3 .wait ul li{ list-style: none; padding:0px; line-height:25px;/* background:url(../images/li.gif)no-repeat 0px 6px*/ ; padding-left:20px; color:#999999}
 .step3 .wait ul li span{ padding-left:30px; color:#0066CC;}
 .step3 .wait ul li u{ text-decoration:none}
-
+.step3 input{width:40px;}
 .success {width:762px; padding-top:50px; margin:0  auto;text-align:center; display:none}
 
 .step4 {width:762px; padding-top:50px; margin:0  auto;text-align:center; color:#FF3300; font-size:14px;}

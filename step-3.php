@@ -11,12 +11,13 @@
 //0 -16  -39 -59
 $(document).ready(function()
 {
-conversion(0);
+//conversion(0);
 //
 <?php
 $getconfig=trim($_GET['set']);
 $cf=explode('--|--',$getconfig);
 ?>
+});
 function conversion(n)
 {
 	var srcdbhost="<?php echo  $cf[0]?>";
@@ -31,47 +32,77 @@ function conversion(n)
 	var qsdbname="<?php echo  $cf[9]?>";
 	var qspre="<?php echo  $cf[10]?>";
 	var url;
-        if(n==0){
-            url="conversion_user_company.php";
-        }
-        else{
+        
+	if (n==0)
+	{
+            url="conversion_user_company.php?";
+            var start_id=parseInt($('#company_start_id').val(),10);
+            var end_id=parseInt($('#company_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+            if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                } 
+	}
+	else if(n==1)
+	{
+            url="conversion_user_personal.php?";
+              var start_id=parseInt($('#personal_start_id').val(),10);
+            var end_id=parseInt($('#personal_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+            if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
+	}
+	else if(n==2)
+	{
+            url="conversion_company.php?";
+               var start_id=parseInt($('#com_profile_start_id').val(),10);
+            var end_id=parseInt($('#com_profile_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+            if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
+	}
+	else if(n==3)
+	{
+            url="conversion_jobs.php?";
+                var start_id=parseInt($('#job_start_id').val(),10);
+            var end_id=parseInt($('#job_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+            if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
+	}
+	else if(n==4)
+	{
+            url="conversion_resume.php?";
+	}
+	else if(n==5)
+	{
+            url="conversion_link.php?";
+	}
+	else
+	{
             url="";
             $(".success").show();
             alert("转换完成");
             return false;
-        }
-        
-        
-	if (n==0)
-	{
-	url="conversion_user_company.php";
-	}
-	else if(n==1)
-	{
-	url="conversion_user_personal.php";
-	}
-	else if(n==2)
-	{
-	url="conversion_company.php";
-	}
-	else if(n==3)
-	{
-	url="conversion_jobs.php";
-	}
-	else if(n==4)
-	{
-	url="conversion_resume.php";
-	}
-	else if(n==5)
-	{
-	url="conversion_link.php";
-	}
-	else
-	{
-	url="";
-	$(".success").show();
-	alert("转换完成");
-	return false;
 	}
 	$(".wait span").eq(n).html('正在转换,请等待...').css('color','#FF0000');
 	$(".wait li").eq(n).css('background-position','0px -16px').css('color','#000000');
@@ -85,16 +116,16 @@ function conversion(n)
                                                     $(".wait span").eq(n).html('转换完成,成功转换'+info[1]+'行数据').css('color','#009900');
                                                     $(".wait li").eq(n).css('background-position','0px -39px').css('color','#000000');
                                                     n=n+1;
-                                                    conversion(n);
+                                                  //  conversion(n);
 						}
 						else
 						{
-							alert('转换过程发生错误,系统已经停止转换,请记录此错误:'+data);
+						    alert('转换过程发生错误,系统已经停止转换,请记录此错误:'+data);
+                                                    $(".wait span").eq(n).html('转换已停止:' + data).css('color','red');
 						}
 					}
 				);
 }
-});
 </script>
 <?php
 $s1="succeed";
@@ -109,12 +140,26 @@ require_once(dirname(__FILE__).'/inc/top.php');
 <div class="step3">
 	<div class="wait">
 		<ul>
-		<li><u>企业会员</u><span>等待转换</span></li>
-		<li><u>个人会员</u><span>等待转换</span></li>
-		<li><u>企业信息</u><span>等待转换</span></li>
-		<li><u>职位信息</u><span>等待转换</span></li>
-		<li><u>个人简历</u><span>等待转换</span></li>
-		<li><u>友情链接</u><span>等待转换</span></li>
+                <li><u>企业会员</u><span>等待转换</span>
+                    会员id 开始id(不包括):<input type="text" id="company_start_id"/>
+                    结束id(不包括):<input type="text" id="company_end_id"/>
+                    <a href="#" onclick="conversion(0)">开始转换</a>
+                </li>
+		<li><u>个人会员</u><span>等待转换</span>
+                   会员id 开始id(不包括):<input type="text" id="personal_start_id"/>
+                    结束id(不包括):<input type="text" id="personal_end_id"/>
+                    <a href="#" onclick="conversion(1)">开始转换</a>
+                </li>
+		<li><u>企业信息</u><span>等待转换</span>
+                     企业信息 开始id(不包括):<input type="text" id="com_profile_start_id"/>
+                    结束id(不包括):<input type="text" id="com_profile_end_id"/>
+                    <a href="#" onclick="conversion(2)">开始转换</a></li>
+		<li><u>职位信息</u><span>等待转换</span>
+                       职位Id 开始id(不包括):<input type="text" id="job_start_id"/>
+                    结束id(不包括):<input type="text" id="job_end_id"/>
+                    <a href="#" onclick="conversion(3)">开始转换</a></li>
+		<li><u>个人简历</u><span>等待转换</span><a href="#" onclick="conversion(4)">开始转换</a></li>
+		<li><u>友情链接</u><span>等待转换</span><a href="#" onclick="conversion(5)">开始转换</a></li>
 		</ul>
 	</div>
 </div>

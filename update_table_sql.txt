@@ -2,3 +2,10 @@
 2、members_setmeal
 alter table `qs32_members_points` add unique unique_uid (`uid`);
 alter table `qs32_members_setmeal` add unique unique_uid (`uid`);
+
+3、company_profile
+alter table `qs32_company_profile` modify logo varchar(400);
+
+4、性别英文字段哪张表，记得修改
+alter table `qs32_resume` modify sex_cn varchar(20);
+5、市区表，数据已修改为和shiphr一致

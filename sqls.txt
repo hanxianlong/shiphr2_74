@@ -1,0 +1,14 @@
+#查询出两个系统之间职业类别之间关系的Sql
+select ship.p_id,ship.p_name,ship.p_fid,qs.id,qs.parentid,qs.categoryname from shiphr.uchome_job_position as ship, ship74cms32.qs32_category_jobs as qs
+where ship.p_fid=0 and qs.parentid=0 and binary(trim(ship.p_name))=binary(trim(qs.categoryname))
+union all 
+select ship.p_id,ship.p_name,ship.p_fid,qs.id,qs.parentid,qs.categoryname from shiphr.uchome_job_position as ship, ship74cms32.qs32_category_jobs as qs
+where ship.p_fid>0 and qs.parentid>0 and binary(trim(ship.p_name))=binary(trim(qs.categoryname)) and ship.p_name!='其他'
+union ALL
+
+select  ship.p_id,ship.p_name,ship.p_fid,qs.id,qs.parentid,qs.categoryname from  
+(select *,(select s.p_name from shiphr.uchome_job_position s where s.p_id=ship.p_fid) as ship_p_name from shiphr.uchome_job_position as ship where p_name='其他' and p_fid>0 order by binary(ship_p_name)) ship,
+(
+select *,(select q.categoryname from ship74cms32.qs32_category_jobs q where q.id=qs.parentid) as qs_p_name from qs32_category_jobs as qs where categoryname='其他' and parentid>0 order by binary(qs_p_name)) qs
+ where binary(ship.ship_p_name) = binary(qs.qs_p_name) ;
+
