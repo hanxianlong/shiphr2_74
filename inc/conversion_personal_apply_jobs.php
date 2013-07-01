@@ -3,27 +3,39 @@
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
 require_once(dirname(__FILE__).'/splitword.class.php');
-$sp = new SPWord();
-$module_name="resumes";
-//http://myconverter.shiyishi.tk/inc/conversion_resume.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
+
+$module_name="personal_apply_jobs";
+//http://myconverter.shiyishi.tk/inc/conversion_personal_apply_jobs.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
 //
 //尝试锁定当前模块,如果锁文件已经存在，则会终止运行
 mylocker::try_lock_module($module_name);
 $mylogger = new mylogger($module_name);
 
-$sql="select resume.*,space.resume_photo  as resumephoto from `{$srcpre}job_resumes` as resume,`{$srcpre}space` as space where resume.uid=space.uid ";
-$countsql = "select count(*) as total from (select resume.*,space.resume_photo  as resumephoto from `{$srcpre}job_resumes` as resume,`{$srcpre}space` as space where resume.uid=space.uid ";
+$sql="select * from  `{$srcpre}job_collect` app";
+/**cid:主键，职位申请及收藏的id
+//cuid:用户id
+//collect:如果是收藏职位，则字段为1
+//apply:如果是用户初次申请职位，则字段为1，企业回复了应聘者，字段为2 ，企业拒绝应聘者，字段为3
+//corpid:企业id
+ * jobid:职位id
+ * applyinfo:如果企业通知面试，则此字段保存为回复消息
+ * dateline:个人申请、收藏时间、企业回复时间均为此字段
+ * rid:简历id
+ * com_del:是否被删除（企业主动删除，如果已删除，不会再收到此人、此简历的申请）
+ */
+
+$countsql = "select count(*) from (select * from  `{$srcpre}job_collect` app ";
 
 if(isset($_GET['start_id'])){
     $start_id = intval($_GET['start_id']);
-    $sql .=" and resume.id>$start_id";
-    $countsql .=" and resume.id>$start_id";
+    $sql .=" and app.cid>$start_id";
+    $countsql .=" and app.cid>$start_id";
 }
 
 if(isset($_GET['end_id'])){
     $end_id = intval($_GET['end_id']);
-    $sql .=" and resume.id<$end_id";
-    $countsql .=" and resume.id<$end_id";
+    $sql .=" and app.id<$end_id";
+    $countsql .=" and app.id<$end_id";
 }
 $countsql .=") as x;";
 
@@ -37,6 +49,54 @@ $mylogger->put_msg_to_disk($total_msg);
         $i=0;
 	while($row = $dbsrc->fetch_array($result))
 	{
+            /**
+             * 个人申请记录：
+             * qs32_personal_jobs_apply
+             *   did:主键id
+             * resume_id:简历id
+             * resume_name:简历名称
+             * personal_uid:个人id
+             * jobs_id:职位id
+             * jobs_name:职位名称
+             * company_id:企业id
+             * company_name:企业名称
+             * company_uid:企业用户id
+             * peronal_look:1：企业未查看 2：企业已查看
+             * notes:其他说明（求职信）
+             * 
+             * 企业下载的简历
+             * qs32_company_down_resume 
+             * did:主键id
+             * resume_id:简历id
+             * resume_name:简历名称
+             * resume_uid:简历用户的uid
+             * company_uid:企业id
+             * company_name:企业名称
+             * down_addtime:下载时间
+             * 
+             * 企业人才库
+             * qs32_company_favorites
+             * did:主键id
+             * resume_id:简历id
+             * company_uid:企业用户id
+             * favoritesa_ddtime:添加时间
+             * 
+             * 企业面试邀请
+             * qs32_company_interview
+             * did:主键id
+             * resume_id:简历id
+             * resume_name:简历用户名
+             * resume_addtime:简历添加时间
+             * resume_uid:简历用户id
+             * jobs_id:职位id
+             * jobs_name:职位名称
+             * company_id:公司id
+             * company_name:公司名称
+             * company_uid:公司用户id
+             * interview_addtime:邀请面试时间
+             * notes:面试说明
+             * personal_look:1 被邀请用户未查看 2：被邀请用户已查看
+             */
             $resume_id=$row['id'];
             $uid=intval($row['uid']); 
             

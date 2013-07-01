@@ -50,6 +50,7 @@ $watch->start();
             $i++;
             
             $mylogger->put_msg($uid);
+            unset($row);
 	}
         
        $mylogger->flush_all();

@@ -3,6 +3,7 @@
 date_default_timezone_set('Asia/Chongqing');
 header("Content-type:text/html; charset=GB2312");
 error_reporting(E_ALL);
+@ini_set('memory_limit', '1024M');
 require_once(dirname(__FILE__).'/mysql.class.php');
 define("ROOT_PATH", dirname(dirname(__FILE__)));
 define("LOG_COMMIT_SIZE",2000);//每1000个提交一次日志信息
@@ -59,7 +60,7 @@ function conversion_inserttable($tablename, $insertsqlarr, $returnid=0, $replace
 	$state = $db->query($method." INTO $tablename ($insertkeysql) VALUES ($insertvaluesql)", $silent?'SILENT':'');
 	if($returnid && !$replace) {
 		return $db->insert_id();
-	} 
+	}
 	 return $state;
 }
 
