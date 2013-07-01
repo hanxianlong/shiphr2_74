@@ -145,7 +145,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
                     结束id(不包括):<input type="text" id="company_end_id"/>
                     <a href="#" onclick="conversion(0)">开始转换</a>
                 </li>
-		<li><u>个人会员</u><span>等待转换</span>
+		<li><u>个人会员及自定义简历</u><span>等待转换</span>
                    会员id 开始id(不包括):<input type="text" id="personal_start_id"/>
                     结束id(不包括):<input type="text" id="personal_end_id"/>
                     <a href="#" onclick="conversion(1)">开始转换</a>
@@ -160,6 +160,8 @@ require_once(dirname(__FILE__).'/inc/top.php');
                     <a href="#" onclick="conversion(3)">开始转换</a></li>
 		<li><u>个人简历</u><span>等待转换</span><a href="#" onclick="conversion(4)">开始转换</a></li>
 		<li><u>友情链接</u><span>等待转换</span><a href="#" onclick="conversion(5)">开始转换</a></li>
+                <li><u>个人收藏的职位</u><span>等待转换</span><a href="#" onclick="conversion(6)">开始转换</a></li>
+                <li><u>企业下载的简历</u><span>等待转换</span><a href="#" onclick="conversion(7)">开始转换</a></li>
 		</ul>
 	</div>
 </div>

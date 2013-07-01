@@ -5,7 +5,7 @@ header("Content-type:text/html; charset=GB2312");
 error_reporting(E_ALL);
 require_once(dirname(__FILE__).'/mysql.class.php');
 define("ROOT_PATH", dirname(dirname(__FILE__)));
-define("LOG_COMMIT_SIZE",1);//每1000个提交一次日志信息
+define("LOG_COMMIT_SIZE",2000);//每1000个提交一次日志信息
 define('COMPANY_DEFAULT_AUDIT',0);//导入时企业默认审核状态
 
 require_once(ROOT_PATH.'/utils/stopwatch.class.php');
@@ -92,7 +92,7 @@ function conversion_updatetable($tablename, $setsqlarr, $wheresqlarr, $silent=0)
 
 /*注册新用户
  */
-function conversion_register($userid,$username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile='',$last_login_time=0)
+function conversion_register($userid,$username,$password,$passwordtype=0,$member_type=0,$email,$ip='',$timestamp='',$mobile='',$last_login_time=0,$resume_file='')
 {
 	global $db,$QS_pwdhash;
 	$member_type=intval($member_type);
@@ -129,7 +129,7 @@ function conversion_register($userid,$username,$password,$passwordtype=0,$member
 	$setsqlarr['reg_time']=$timestamp;
 	$setsqlarr['reg_ip']=$ip;
 	$setsqlarr['mobile']=$mobile;
-         
+         $setsqlarr['attach_resume_path']=$resume_file;
         $setsqlarr['last_login_time']=$last_login_time;   
         
         //TODO 邮箱认证

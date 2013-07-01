@@ -1,2 +1,6 @@
 1、attachment/companylogo => data/logo/
-2\简历
+2、简历头像
+    data/photo/uploads文件夹下
+3、上传的word简历 
+   uploads文件夹下的doc与docx文件，转移到
+   data/resumes/uploads文件夹下

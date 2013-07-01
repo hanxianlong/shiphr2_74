@@ -5,9 +5,17 @@
 if(!defined('IN_QISHI')) exit('Access Denied!');
 class mysql {
 	var $linkid=null;
-
+     private $host;
+     private $user;
+     private $pwd;
+     private $db;
+     
     function __construct($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = 'gbk', $connect = 1) {
     	$this -> connect($dbhost, $dbuser, $dbpw, $dbname, $dbcharset, $connect);
+        $this->host = $dbhost;
+        $this->user = $dbuser;
+        $this->db = $dbname;
+        $this->pwd = $dbpw;
     }
 
     function connect($dbhost, $dbuser, $dbpw, $dbname = '', $dbcharset = 'gbk', $connect=1){
@@ -41,7 +49,12 @@ class mysql {
     		return $query;
     	}
     }
-
+  function multi_query($sql){
+         $conn = new mysqli($this->host, $this->user, $this->pwd, $this->db);
+         $conn->multi_query($sql);
+         $conn->close();
+    }
+    
     function getall($sql, $type=MYSQL_ASSOC){
     	$query = $this->query($sql);
     	while($row = mysql_fetch_array($query,$type)){

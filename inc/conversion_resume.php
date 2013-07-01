@@ -112,7 +112,7 @@ $mylogger->put_msg_to_disk($total_msg);
             $setsqlarr['website']=$row['homepageurl'];
             $setsqlarr['qq']='';
             $setsqlarr['refreshtime']=$row['dateline'];
-            $setsqlarr['display_name']=2;	
+            $setsqlarr['display_name']=1;	
             $setsqlarr['audit']=1;
             $setsqlarr['talent']=1;
             $setsqlarr['addtime']=$setsqlarr['refreshtime'];
@@ -177,7 +177,7 @@ $mylogger->put_msg_to_disk($total_msg);
             $setsqlarr['photo'] = empty($photo_path)?0:1;
             
             $setsqlarr['complete']=1;
-            $setsqlarr['complete_percent']=60;
+            $setsqlarr['complete_percent']=calculate_complete_percent($row);
             $setsqlarr['talent']=1;
             $setsqlarr['click']=$row['viewnum'];
             $setsqlarr['recentjobs']='';//最近工作过的工作
@@ -269,15 +269,15 @@ $mylogger->put_msg_to_disk($total_msg);
           //  $resulttraining = $dbsrc->query("select * from `{$frpre}training` WHERE t_rid='{$row['r_id']}' ");
           //  while($rowt = $dbsrc->fetch_array($resulttraining))
            // {
-              if(!$db->getone("select * from ". table("resume_work") ." where uid=$uid and pid=$resume_id;")){
+              if(!$db->getone("select * from ". table("resume_training") ." where uid=$uid and pid=$resume_id;")){
                     $tsql['uid']=$uid;
                     $tsql['pid']=$resume_id;
-                   $wsql['start']='1900-01-01';
-                    $wsql['endtime']='1900-01-01';
+                    $tsql['start']='1900-01-01';
+                    $tsql['endtime']='1900-01-01';
                     $tsql['agency']='';
                     $tsql['course']='';
                     $tsql['description']='';
-                    $tsql['training_remark'] = '';
+                    $tsql['training_remark'] = '培训经历未填写';
                     conversion_inserttable(table('resume_training'),$tsql);
               }
           //  }
@@ -321,4 +321,66 @@ $mylogger->put_msg_to_disk($total_msg);
    $mylogger->flush_all();
         $mylogger->log_complete_module("$module_name finished, 应转:$to_be_converted_count ,实际转:$i");
 exit("ok,{$i}");
+
+function calculate_complete_percent($value){
+    $percent=0;
+    if ($value['resumetitle']) $percent++;
+        if ($value['name']) $percent++;
+        if ($value['sex']) $percent++;
+        if ($value['birthyear']) $percent++;
+        if ($value['birthmonth']) $percent++;
+        if ($value['birthday']) $percent++;
+        if ($value['resideprovince']) $percent++;
+        if ($value['residecity']) $percent++;
+        if ($value['edudegree']) $percent++;
+        if ($value['school']) $percent++;
+        if ($value['seniority']) $percent++;
+        if ($value['description']) $percent++;
+        if ($value['mophone']) $percent++;
+        if ($value['email']) $percent++;
+        if ($value['hopejobtype']) $percent++;
+        if ($value['hopeindustry']) $percent++;
+        if ($value['hopeposition']) $percent++;
+        if ($value['hope1province']) $percent++;
+        if ($value['hope1city']) $percent++;
+        if ($value['language1']) $percent++;
+        if ($value['language1level']) $percent++;
+        if ($value['education']) $percent++;
+        if ($value['work']) $percent++;
+        if ($value['hasexperience'] >= 0) $percent++;
+        if ($value['workstatus'] >= 0) $percent++;
+        if ($value['resumestatus'] >= 0) $percent++;
+        if ($value['marry']) $percent++;
+        if ($value['nationality']) $percent++;
+        if ($value['censusprovince']) $percent++;
+        if ($value['censuscity']) $percent++;
+        if ($value['emolumenttype']) $percent++;
+        if ($value['emolument']) $percent++;
+        if ($value['contacttype']) $percent++;
+        if ($value['homephone']) $percent++;
+        if ($value['officephone']) $percent++;
+        if ($value['address']) $percent++;
+        if ($value['postcode']) $percent++;
+        if ($value['blogurl']) $percent++;
+        if ($value['homepageurl']) $percent++;
+        if ($value['hasoverseas'] >= 0) $percent++;
+        if ($value['industry']) $percent++;
+        if ($value['position']) $percent++;
+        if ($value['subposition']) $percent++;
+        if ($value['specialty']) $percent++;
+        if ($value['hope2province']) $percent++;
+        if ($value['hope2city']) $percent++;
+        if ($value['hope3province']) $percent++;
+        if ($value['hope3city']) $percent++;
+        if ($value['language2']) $percent++;
+        if ($value['language2level']) $percent++;
+        if ($value['language3']) $percent++;
+        if ($value['language3level']) $percent++;
+        if ($value['hopeemolumenttype']) $percent++;
+        if ($value['hopeemolument']) $percent++;
+        if ($value['entrytype']) $percent++;
+        if ($value['customresume']) $percent++;
+        
+        return ceil($percent * 100 / 56);
+}
 ?>
