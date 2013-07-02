@@ -77,7 +77,7 @@ class mysql {
 			foreach($row as $n)
 			{
 			$v=$v+$n['num'];
-			}			
+			}
 		}
 		return $v;
  	}

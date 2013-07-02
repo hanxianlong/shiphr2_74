@@ -8,7 +8,7 @@ class mylogger{
         $this->module_name=$module_name;
     }
     /**
-     * д��־
+     * д��־
      * @param string $file
      * @param mixed $msg
      */
@@ -46,7 +46,7 @@ class mylogger{
 
             unset($this->msgs_cache);
         }
-        
+
         $this->log_info($this->module_name.' finished at ' . date('Y-m-d G:i:s') .",totally $this->total records");
     }
     
