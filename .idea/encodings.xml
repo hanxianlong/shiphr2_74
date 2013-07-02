@@ -3,7 +3,7 @@
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
     <file url="file://$PROJECT_DIR$/inc/conversion.inc.php" charset="GBK" />
     <file url="file://$PROJECT_DIR$/inc/conversion_jobs.php" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/inc/conversion_personal_apply_jobs.php" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" charset="GBK" />
     <file url="PROJECT" charset="GBK" />
   </component>
 </project>
