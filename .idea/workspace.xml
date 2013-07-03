@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f00f2295-5ef7-47a2-9465-b75db4a663d5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/yuanyuan.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="D:\Project\PHP\shiphr274\inc\conversion_personal_apply_jobs.php" afterPath="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
     </list>
     <ignored path="shiphr2_74.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372777678610" ignored="false" />
+    <file path="/Dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372857338539" ignored="false" />
     <file path="/a" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372754384298" ignored="false" />
     <file path="/mylogger.class.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372755964350" ignored="false" />
+    <file path="/dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372777769430" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +41,7 @@
       <file leaf-file-name="conversion_jobs_personal_company_relations.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="162" column="13" selection-start="7058" selection-end="7058" vertical-scroll-proportion="-19.035715">
+            <state line="162" column="13" selection-start="7058" selection-end="7058" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -54,13 +50,8 @@
       <file leaf-file-name="conversion_com_purchased_resume.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/conversion_com_purchased_resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="0" selection-start="5360" selection-end="5360" vertical-scroll-proportion="-12.25">
-              <folding>
-                <element signature="e#646#915#0" expanded="false" />
-                <element signature="e#917#4693#0" expanded="false" />
-                <element signature="e#4775#4928#0" expanded="false" />
-                <element signature="e#4930#5071#0" expanded="false" />
-              </folding>
+            <state line="123" column="0" selection-start="5360" selection-end="5360" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -68,7 +59,7 @@
       <file leaf-file-name="conversion_com_saved_resume.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/conversion_com_saved_resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="35" selection-start="5131" selection-end="5131" vertical-scroll-proportion="0.23300971">
+            <state line="133" column="0" selection-start="5688" selection-end="5688" vertical-scroll-proportion="0.6166924">
               <folding />
             </state>
           </provider>
@@ -153,7 +144,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -162,40 +152,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr274" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr274" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="preferences.keymap" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="localhost" serverId="df577d8b-c9b1-46e9-920a-b52ab653cde7" />
   <component name="RecentsManager">
@@ -240,20 +208,23 @@
       <created>1372754223646</created>
       <updated>1372754223646</updated>
     </task>
+    <task id="LOCAL-00001" summary="init conversion jobs to personal and company relations">
+      <created>1372777705865</created>
+      <updated>1372777705865</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32867134" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21557271" sideWeight="0.67132866" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21814671" sideWeight="0.67132866" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -262,9 +233,12 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867134" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32867134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -352,6 +326,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="13" selection-start="7058" selection-end="7058" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_com_purchased_resume.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="123" column="0" selection-start="5360" selection-end="5360" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_com_saved_resume.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="35" selection-start="5131" selection-end="5131" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/step-2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="3" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
           <folding />
         </state>
@@ -366,16 +368,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/mylogger.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="35" selection-start="1455" selection-end="1455" vertical-scroll-proportion="-13.428572">
-          <folding />
-        </state>
+        <state line="46" column="35" selection-start="1455" selection-end="1455" vertical-scroll-proportion="-13.428572" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="1" selection-start="2114" selection-end="2114" vertical-scroll-proportion="0.17444219">
-          <folding />
-        </state>
+        <state line="64" column="1" selection-start="2114" selection-end="2114" vertical-scroll-proportion="0.17444219" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_jobs.php">
@@ -400,26 +398,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_com_purchased_resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="0" selection-start="5360" selection-end="5360" vertical-scroll-proportion="-12.25">
-          <folding>
-            <element signature="e#646#915#0" expanded="false" />
-            <element signature="e#917#4693#0" expanded="false" />
-            <element signature="e#4775#4928#0" expanded="false" />
-            <element signature="e#4930#5071#0" expanded="false" />
-          </folding>
+        <state line="123" column="0" selection-start="5360" selection-end="5360" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="13" selection-start="7058" selection-end="7058" vertical-scroll-proportion="-19.035715">
+        <state line="162" column="13" selection-start="7058" selection-end="7058" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_com_saved_resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="35" selection-start="5131" selection-end="5131" vertical-scroll-proportion="0.23300971">
+        <state line="133" column="0" selection-start="5688" selection-end="5688" vertical-scroll-proportion="0.6166924">
           <folding />
         </state>
       </provider>

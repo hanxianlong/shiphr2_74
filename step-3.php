@@ -92,11 +92,65 @@ function conversion(n)
 	else if(n==4)
 	{
             url="conversion_resume.php?";
+                var start_id=parseInt($('#resume_start_id').val(),10);
+            var end_id=parseInt($('#resume_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+            if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
 	}
 	else if(n==5)
 	{
             url="conversion_link.php?";
 	}
+       
+        else if(n==6){//企业下载的简历
+              url="conversion_com_purchased_resume.php?";
+                var start_id=parseInt($('#purchased_start_id').val(),10);
+            var end_id=parseInt($('#purchased_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+            if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
+        }
+         /*
+                <li><u>个人职位收藏、职位申请、企业面试等</u><span>等待转换</span><a href="#" onclick="conversion(8)">开始转换</a></li>
+         */
+        else if(n==7)
+        {
+               url="conversion_com_saved_resume.php?";
+                var start_id=parseInt($('#saved_resume_start_id').val(),10);
+            var end_id=parseInt($('#saved_resume_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+                if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
+        }
+        else if(n==8){
+              url="conversion_jobs_personal_company_relations.php?";
+                var start_id=parseInt($('#resume_job_relations_start_id').val(),10);
+            var end_id=parseInt($('#resume_job_relations_resume_end_id').val(),10);//uid
+            if(start_id>0)
+                {
+                    url +="start_id=" + start_id;
+                }
+                if(end_id>0)
+                {
+                    url +="&end_id=" + end_id;
+                }
+        }
 	else
 	{
             url="";
@@ -158,10 +212,24 @@ require_once(dirname(__FILE__).'/inc/top.php');
                        职位Id 开始id(不包括):<input type="text" id="job_start_id"/>
                     结束id(不包括):<input type="text" id="job_end_id"/>
                     <a href="#" onclick="conversion(3)">开始转换</a></li>
-		<li><u>个人简历</u><span>等待转换</span><a href="#" onclick="conversion(4)">开始转换</a></li>
+		<li><u>个人简历</u><span>等待转换</span>
+                     job_resumes表索引Id 开始id(不包括):<input type="text" id="resume_start_id"/>
+                    结束id(不包括):<input type="text" id="resume_end_id"/>
+                    
+                    <a href="#" onclick="conversion(4)">开始转换</a></li>
 		<li><u>友情链接</u><span>等待转换</span><a href="#" onclick="conversion(5)">开始转换</a></li>
-                <li><u>个人收藏的职位</u><span>等待转换</span><a href="#" onclick="conversion(6)">开始转换</a></li>
-                <li><u>企业下载的简历</u><span>等待转换</span><a href="#" onclick="conversion(7)">开始转换</a></li>
+                <li><u>企业下载的简历</u><span>等待转换</span>
+                      job_purchasedresume表索引Id 开始id(不包括):<input type="text" id="purchased_start_id"/>
+                    结束id(不包括):<input type="text" id="purchased_end_id"/>
+                    <a href="#" onclick="conversion(6)">开始转换</a></li> 
+                <li><u>企业人才库</u><span>等待转换</span>
+                      job_savedresume表索引Id 开始id(不包括):<input type="text" id="saved_resume_start_id"/>
+                    结束id(不包括):<input type="text" id="saved_resume_end_id"/>
+                    <a href="#" onclick="conversion(7)">开始转换</a></li>
+                <li><u>个人职位收藏、职位申请、企业面试等</u><span>等待转换</span>
+                     job_collect表索引id 开始id(不包括):<input type="text" id="resume_job_relations_resume_start_id"/>
+                    结束id(不包括):<input type="text" id="resume_job_relations_resume_end_id"/>
+                    <a href="#" onclick="conversion(8)">开始转换</a></li>
 		</ul>
 	</div>
 </div>
