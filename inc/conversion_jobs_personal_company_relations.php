@@ -79,9 +79,11 @@ $sql="SELECT
         application.applyinfo as apply_info,
         application.dateline as apply_dateline,
         application.com_del as isdeleted,
+        application.rid as resume_id,
          resume.resumetitle AS resume_title,
 	resume.username AS resume_username,
 	resume.dateline AS resume_addtime,
+        job.id as jobid,
 	job.uid AS company_uid, 
         job.corptitle as compnay_title,
         job.title  as job_title
@@ -131,6 +133,7 @@ while($row = $dbsrc->fetch_array($result))
     $apply_dateline = $row['apply_dateline'];
     $apply_isdeleted = $row['isdeleted'];
    
+    $resume_id = $row['resume_id'];
     $resume_username = $row['resume_username'];
     $resume_addtime = $row['resume_addtime'];
     
@@ -195,7 +198,7 @@ while($row = $dbsrc->fetch_array($result))
         $is_company_viewed = 0;
         if($apply_status!=1)
             $is_company_viewed = 1;
-        $sql_array['peronal_look'] = $is_company_viewed;
+        $sql_array['personal_look'] = $is_company_viewed;
         $sql_array['notes'] = '';
         
         conversion_inserttable(table("personal_jobs_apply"), $sql_array,false,true);
@@ -240,7 +243,7 @@ while($row = $dbsrc->fetch_array($result))
         $is_company_viewed = 0;
         if($apply_status!=1)
             $is_company_viewed = 1;
-        $sql_array['peronal_look'] = $is_company_viewed;
+        $sql_array['personal_look'] = $is_company_viewed;
         $sql_array['notes'] = '';
         
         conversion_inserttable(table("company_interview"), $sql_array,false,true);

@@ -3,6 +3,7 @@
 date_default_timezone_set('Asia/Chongqing');
 header("Content-type:text/html; charset=GB2312");
 error_reporting(E_ALL);
+set_time_limit(0);
 @ini_set('memory_limit', '1024M');
 require_once(dirname(__FILE__).'/mysql.class.php');
 define("ROOT_PATH", dirname(dirname(__FILE__)));

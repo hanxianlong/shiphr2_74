@@ -39,7 +39,6 @@ and resume.id = purchased.rid ";
  
  */
 $countsql = "select count(*) as total from (" . $sql;
-
 if(isset($_GET['start_id'])){
     $start_id = intval($_GET['start_id']);
     $sql .=" and id>$start_id";
@@ -88,12 +87,12 @@ company.corptitle as company_title
            
             $id = $row['id'];
 $sql_array['did'] = $row['id'];
-    $sql_array['resume_id'] = $row['rid'];
+    $sql_array['resume_id'] = $row['resume_id'];
     $sql_array['resume_name'] = $row['resume_title'];
     $sql_array['resume_uid'] = $row['resume_uid'];
     $sql_array['company_uid'] = $row['company_uid'];
     $sql_array['company_name'] = $row['company_title'];
-    $sql_array['down_addtime'] = $row['dateline'];
+    $sql_array['down_addtime'] = $row['purchased_datetime'];
     conversion_inserttable(table("company_down_resume "), $sql_array,false,true);
             $mylogger->put_msg($id);
             $i++;

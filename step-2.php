@@ -26,7 +26,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
   <tr>
     <td width="100" align="right">MYSQL服务器：</td>
     <td>
-      <input type="text" name="srcdbhost" class="text_200"  id="srcdbhost"  value="<?php echo $dbhost ?>"/><span class="note">一般为：localhost,也填写IP地址</span></td>
+      <input type="text" name="srcdbhost" class="text_200"  id="srcdbhost"  value="<?php echo $dbhost ?>"/></td>
     </tr>
   <tr>
     <td width="100" align="right">数据库用户名：</td>
@@ -75,7 +75,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
     <td width="100" align="right">MYSQL服务器：</td>
     <td>
       <input name="qsdbhost" type="text" class="text_200" value="<?php echo $dbhost ?>"  id="qsdbhost"/>
-      <span class="note">一般为：localhost,也填写IP地址</span></td>
+      </td>
     </tr>
   <tr>
     <td width="100" align="right">数据库用户名：</td>

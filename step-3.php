@@ -169,6 +169,7 @@ function conversion(n)
 						{
                                                     $(".wait span").eq(n).html('转换完成,成功转换'+info[1]+'行数据').css('color','#009900');
                                                     $(".wait li").eq(n).css('background-position','0px -39px').css('color','#000000');
+
                                                     n=n+1;
                                                   //  conversion(n);
 						}
@@ -195,41 +196,64 @@ require_once(dirname(__FILE__).'/inc/top.php');
 	<div class="wait">
 		<ul>
                 <li><u>企业会员</u><span>等待转换</span>
+
                     会员id 开始id(不包括):<input type="text" id="company_start_id"/>
                     结束id(不包括):<input type="text" id="company_end_id"/>
-                    <a href="#" onclick="conversion(0)">开始转换</a>
+                    <a href="#"  id='start0'  onclick="conversion(0)">开始转换</a>
+
                 </li>
 		<li><u>个人会员及自定义简历</u><span>等待转换</span>
                    会员id 开始id(不包括):<input type="text" id="personal_start_id"/>
                     结束id(不包括):<input type="text" id="personal_end_id"/>
-                    <a href="#" onclick="conversion(1)">开始转换</a>
-                </li>
+                    <a href="#"  id='start1'  onclick="if(confirm('转换时间可能较长，转换期间请勿对页面做其他操作！'))conversion(1)">开始转换</a>
+           </li>
 		<li><u>企业信息</u><span>等待转换</span>
+
                      企业信息 开始id(不包括):<input type="text" id="com_profile_start_id"/>
                     结束id(不包括):<input type="text" id="com_profile_end_id"/>
-                    <a href="#" onclick="conversion(2)">开始转换</a></li>
+                    <a href="#"   onclick="conversion(2)">开始转换</a>
+
+        </li>
 		<li><u>职位信息</u><span>等待转换</span>
+
                        职位Id 开始id(不包括):<input type="text" id="job_start_id"/>
                     结束id(不包括):<input type="text" id="job_end_id"/>
-                    <a href="#" onclick="conversion(3)">开始转换</a></li>
+                    <a href="#"   onclick="if(confirm('转换时间可能较长，转换期间请勿对页面做其他操作！'))conversion(3)">开始转换</a>
+
+        </li>
 		<li><u>个人简历</u><span>等待转换</span>
+
                      job_resumes表索引Id 开始id(不包括):<input type="text" id="resume_start_id"/>
                     结束id(不包括):<input type="text" id="resume_end_id"/>
                     
-                    <a href="#" onclick="conversion(4)">开始转换</a></li>
-		<li><u>友情链接</u><span>等待转换</span><a href="#" onclick="conversion(5)">开始转换</a></li>
+                    <a href="#"   onclick="if(confirm('转换时间可能较长，转换期间请勿对页面做其他操作！'))conversion(4)">开始转换</a>
+
+        </li>
+		<li><u>友情链接、广告信息</u><span>等待转换</span>
+
+            <a href="#"  id='start5'  onclick="conversion(5)">开始转换</a>
+
+        </li>
                 <li><u>企业下载的简历</u><span>等待转换</span>
                       job_purchasedresume表索引Id 开始id(不包括):<input type="text" id="purchased_start_id"/>
                     结束id(不包括):<input type="text" id="purchased_end_id"/>
-                    <a href="#" onclick="conversion(6)">开始转换</a></li> 
+                    <a href="#"   onclick="conversion(6)">开始转换</a>
+
+                </li>
                 <li><u>企业人才库</u><span>等待转换</span>
+
                       job_savedresume表索引Id 开始id(不包括):<input type="text" id="saved_resume_start_id"/>
                     结束id(不包括):<input type="text" id="saved_resume_end_id"/>
-                    <a href="#" onclick="conversion(7)">开始转换</a></li>
+                    <a href="#"  onclick="conversion(7)">开始转换</a>
+
+                </li>
                 <li><u>个人职位收藏、职位申请、企业面试等</u><span>等待转换</span>
+
                      job_collect表索引id 开始id(不包括):<input type="text" id="resume_job_relations_resume_start_id"/>
                     结束id(不包括):<input type="text" id="resume_job_relations_resume_end_id"/>
-                    <a href="#" onclick="conversion(8)">开始转换</a></li>
+                    <a href="#" onclick="conversion(8)">开始转换</a>
+   
+                </li>
 		</ul>
 	</div>
 </div>
