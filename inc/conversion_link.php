@@ -3,7 +3,7 @@ define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
 
 $module_name="links_and_ads";
-//http://myconverter.shiyishi.tk/inc/conversion_personal_apply_jobs.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
+//http://myconverter.shiyishi.tk/inc/conversion_link.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
 //
 //尝试锁定当前模块,如果锁文件已经存在，则会终止运行
 mylocker::try_lock_module($module_name);
@@ -11,7 +11,7 @@ $mylogger = new mylogger($module_name);
 
 	$i=0;
 	$sql="select * from `{$srcpre}ad`";
-        $countsql = "select count(*) from (".$sql .")";
+        $countsql = "select count(*) as total from (".$sql .") s";
         
         $count = $dbsrc->getone($countsql);
 $to_be_converted_count=$count['total'];

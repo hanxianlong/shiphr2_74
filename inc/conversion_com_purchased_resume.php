@@ -38,7 +38,7 @@ and resume.id = purchased.rid ";
   * $sql = "SELECT COUNT(*) FROM " . tname('job_purchasedresume') . " S LEFT JOIN " . tname('job_resumes') . " R ON S.rid = R.id WHERE S.uid = '$uid' $whereTypeId";
  
  */
-$countsql = "select count(*) from (" . $sql;
+$countsql = "select count(*) as total from (" . $sql;
 
 if(isset($_GET['start_id'])){
     $start_id = intval($_GET['start_id']);

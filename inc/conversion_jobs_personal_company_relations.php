@@ -94,7 +94,7 @@ WHERE
 AND application.rid = resume.id
 and com_del=0 ";
         
-$countsql = "select count(*) from (" . $sql;
+$countsql = "select count(*) as total from (" . $sql;
 
 if(isset($_GET['start_id'])){
     $start_id = intval($_GET['start_id']);

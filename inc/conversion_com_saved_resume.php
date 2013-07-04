@@ -4,7 +4,7 @@ define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php'); 
 
 $module_name="personal_apply_jobs";
-//http://myconverter.shiyishi.tk/inc/conversion_personal_apply_jobs.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
+//http://myconverter.shiyishi.tk/inc/conversion_com_saved_resume.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
 //
 //尝试锁定当前模块,如果锁文件已经存在，则会终止运行
 mylocker::try_lock_module($module_name);
@@ -25,7 +25,7 @@ $sql="select * from  `{$srcpre}job_savedresume` where isdeleted=0 ";
   * $sql = "SELECT S.dateline savedtime,S.rid, S.id sid, R.*, T.name typename FROM " . tname('job_savedresume') . " S LEFT JOIN " . tname('job_resumes') . " R ON S.rid = R.id LEFT JOIN " . tname('job_resumetype') . " T ON T.id = S.typeid WHERE S.uid = '$uid' AND S.isdeleted = '0' $typeWhere ORDER BY S.dateline DESC LIMIT $start,$perpage";
   * 
    */
-$countsql = "select count(*) from (".$sql;
+$countsql = "select count(*)  as total from (".$sql;
 
 if(isset($_GET['start_id'])){
     $start_id = intval($_GET['start_id']);
