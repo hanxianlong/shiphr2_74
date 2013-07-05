@@ -14,7 +14,7 @@ li{list-style: none; padding:0px;}
 .nav .txt li.s3{background-position:149px 9px; padding-left:123px; width:80px;}
 .nav .txt li.s4{background-position:166px 9px; padding-left:140px;width:60px;}
 .nav .txt li.now{ color: #FF9900; font-weight:bold;background-image:url(../images/step_now.gif)}
-.nav .txt li.succeed{ color: #009900; font-weight:bold;background-image:url(../images/step_succeed.gif)}
+.nav .txt li.succeed{ color: gray; font-weight:bold;background-image:url(../images/step_succeed.gif)}
 
 .pagetit{width:762px;margin:0  auto; margin-top:15px; border:0px #B8D6EB solid; border-width: 1px 0px; height:28px; line-height:28px; font-size:14px; background-color: #F7FDFF}
 .pagetit strong{ padding-left:10px;}

@@ -3,7 +3,7 @@
 define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php'); 
 
-$module_name="personal_apply_jobs";
+$module_name="company_favorite";
 //http://myconverter.shiyishi.tk/inc/conversion_com_saved_resume.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
 //
 //尝试锁定当前模块,如果锁文件已经存在，则会终止运行

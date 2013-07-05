@@ -2,29 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f00f2295-5ef7-47a2-9465-b75db4a663d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docs/convertdoc.docx" afterPath="$PROJECT_DIR$/docs/convertdoc.docx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/com.css" afterPath="$PROJECT_DIR$/css/com.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion.inc.php" afterPath="$PROJECT_DIR$/inc/conversion.inc.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" afterPath="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" afterPath="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" afterPath="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_link.php" afterPath="$PROJECT_DIR$/inc/conversion_link.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_resume.php" afterPath="$PROJECT_DIR$/inc/conversion_resume.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/step-2.php" afterPath="$PROJECT_DIR$/step-2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/step-3.php" afterPath="$PROJECT_DIR$/step-3.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/top.php" afterPath="$PROJECT_DIR$/inc/top.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="shiphr2_74.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372948825625" ignored="false" />
+    <file path="/Dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372986086136" ignored="false" />
     <file path="/a" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372754384298" ignored="false" />
     <file path="/mylogger.class.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372755964350" ignored="false" />
     <file path="/dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372777769430" ignored="false" />
     <file path="/config.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372949166525" ignored="false" />
     <file path="/conversion_link.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372950135294" ignored="false" />
-    <file path="/conversion.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372950929789" ignored="false" />
+    <file path="/conversion.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373010348996" ignored="false" />
     <file path="/top.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372951286790" ignored="false" />
     <file path="/step-3.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372952316721" ignored="false" />
-    <file path="/com.css" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372952202913" ignored="false" />
+    <file path="/com.css" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372986181486" ignored="false" />
+    <file path="/step-2.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372986207710" ignored="false" />
+    <file path="/conversion_jobs_personal_company_relations.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372993884193" ignored="false" />
+    <file path="/conversion_resume.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373011062947" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,52 +49,34 @@
       <file leaf-file-name="step-2.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/step-2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="48" selection-start="2285" selection-end="2285" vertical-scroll-proportion="6.392857">
+            <state line="104" column="40" selection-start="3185" selection-end="3185" vertical-scroll-proportion="-7.964286">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="top.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/top.php">
+      <file leaf-file-name="mylocker.class.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/mylocker.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="-2.7142856">
+            <state line="21" column="6" selection-start="501" selection-end="501" vertical-scroll-proportion="-6.607143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="com.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/com.css">
+      <file leaf-file-name="conversion_resume.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/conversion_resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="64" selection-start="2351" selection-end="2351" vertical-scroll-proportion="0.0">
+            <state line="102" column="36" selection-start="3778" selection-end="3778" vertical-scroll-proportion="-8.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="conversion_jobs_personal_company_relations.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="conversion_jobs_personal_company_relations.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="16" selection-start="4290" selection-end="4290" vertical-scroll-proportion="-0.6785714">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="conversion_link.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/conversion_link.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="39" selection-start="2339" selection-end="2339" vertical-scroll-proportion="-12.214286">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="step-3.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/step-3.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="254" column="3" selection-start="8994" selection-end="8994" vertical-scroll-proportion="0.6048">
+            <state line="195" column="43" selection-start="7714" selection-end="7714" vertical-scroll-proportion="0.4777563">
               <folding />
             </state>
           </provider>
@@ -101,25 +85,7 @@
       <file leaf-file-name="conversion.inc.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/conversion.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="18" selection-start="196" selection-end="196" vertical-scroll-proportion="-3.392857">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="standard_4.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="169" column="9" selection-start="5945" selection-end="5945" vertical-scroll-proportion="-18.357143">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.6785714">
+            <state line="293" column="5" selection-start="7332" selection-end="7332" vertical-scroll-proportion="-4.75">
               <folding />
             </state>
           </provider>
@@ -147,16 +113,18 @@
         <option value="$PROJECT_DIR$/utils/mylogger.class.php" />
         <option value="$PROJECT_DIR$/inc/conversion_jobs.php" />
         <option value="$PROJECT_DIR$/inc/conversion_personal_apply_jobs.php" />
-        <option value="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" />
-        <option value="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" />
-        <option value="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
         <option value="$PROJECT_DIR$/data/config.php" />
         <option value="$PROJECT_DIR$/inc/conversion_link.php" />
-        <option value="$PROJECT_DIR$/inc/conversion.inc.php" />
-        <option value="$PROJECT_DIR$/inc/top.php" />
-        <option value="$PROJECT_DIR$/step-2.php" />
-        <option value="$PROJECT_DIR$/css/com.css" />
         <option value="$PROJECT_DIR$/step-3.php" />
+        <option value="$PROJECT_DIR$/inc/top.php" />
+        <option value="$PROJECT_DIR$/css/com.css" />
+        <option value="$PROJECT_DIR$/step-2.php" />
+        <option value="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
+        <option value="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" />
+        <option value="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" />
+        <option value="$PROJECT_DIR$/utils/mylocker.class.php" />
+        <option value="$PROJECT_DIR$/inc/conversion.inc.php" />
+        <option value="$PROJECT_DIR$/inc/conversion_resume.php" />
       </list>
     </option>
   </component>
@@ -164,8 +132,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -223,7 +191,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr274" />
+              <option name="myItemId" value="shiphr2_74" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -233,11 +201,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr274" />
+              <option name="myItemId" value="shiphr2_74" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
+              <option name="myItemId" value="utils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,7 +215,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr274" />
+              <option name="myItemId" value="shiphr2_74" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="converter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiphr2_74" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="inc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="converter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="shiphr2_74" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -265,12 +261,12 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig" serverName="localhost" serverId="df577d8b-c9b1-46e9-920a-b52ab653cde7">
     <servers>
-      <server id="f74dab27-a83d-48b7-873c-754adf6d1d75">
+      <server id="df577d8b-c9b1-46e9-920a-b52ab653cde7">
         <serverdata />
       </server>
     </servers>
@@ -325,7 +321,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -333,7 +329,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22393823" sideWeight="0.67132866" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22727273" sideWeight="0.67132866" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -410,7 +406,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -426,104 +422,116 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/step-2.php">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
+    <entry file="file://$PROJECT_DIR$/inc/top.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="3" selection-start="915" selection-end="915" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/mylogger.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="35" selection-start="1455" selection-end="1455" vertical-scroll-proportion="-13.428572" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion_jobs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="42" selection-start="678" selection-end="678" vertical-scroll-proportion="-0.5165049" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/stopwatch.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="191" selection-end="191" vertical-scroll-proportion="0.32386363" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion_com_saved_resume.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1426" selection-end="1426" vertical-scroll-proportion="0.6141414" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion_com_purchased_resume.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="37" selection-start="1556" selection-end="1556" vertical-scroll-proportion="0.36750484" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.6785714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="16" selection-start="4290" selection-end="4290" vertical-scroll-proportion="-0.6785714">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion.inc.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="18" selection-start="196" selection-end="196" vertical-scroll-proportion="-3.392857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/step-2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="48" selection-start="2285" selection-end="2285" vertical-scroll-proportion="6.392857">
+        <state line="4" column="32" selection-start="112" selection-end="115" vertical-scroll-proportion="-2.7142856">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/com.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="64" selection-start="2351" selection-end="2351" vertical-scroll-proportion="0.0">
+        <state line="16" column="33" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/conversion_link.php">
+    <entry file="file://$PROJECT_DIR$/inc/conversion_user_company.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="39" selection-start="2339" selection-end="2339" vertical-scroll-proportion="-12.214286">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/top.php">
+    <entry file="file://$PROJECT_DIR$/inc/conversion_company.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="41" selection-start="119" selection-end="119" vertical-scroll-proportion="-2.7142856">
+        <state line="112" column="41" selection-start="4950" selection-end="4950" vertical-scroll-proportion="-4.785714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
+    <entry file="file://$PROJECT_DIR$/inc/conversion_com_saved_resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="169" column="9" selection-start="5945" selection-end="5945" vertical-scroll-proportion="-18.357143">
+        <state line="17" column="23" selection-start="718" selection-end="718" vertical-scroll-proportion="-11.535714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_com_purchased_resume.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="37" selection-start="201" selection-end="201" vertical-scroll-proportion="0.2410148">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_generate_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="56" selection-start="2540" selection-end="2546" vertical-scroll-proportion="0.23232323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/mylocker.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="6" selection-start="501" selection-end="501" vertical-scroll-proportion="-6.607143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/cateogory_relations_cache.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="12" selection-start="46514" selection-end="46514" vertical-scroll-proportion="0.26868686">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/step-2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="40" selection-start="3185" selection-end="3185" vertical-scroll-proportion="-7.964286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion.inc.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="293" column="5" selection-start="7332" selection-end="7332" vertical-scroll-proportion="-4.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_resume.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="102" column="36" selection-start="3778" selection-end="3778" vertical-scroll-proportion="-8.5">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/step-3.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="3" selection-start="8994" selection-end="8994" vertical-scroll-proportion="0.6048">
+        <state line="159" column="5" selection-start="4963" selection-end="4963" vertical-scroll-proportion="0.48080808">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="195" column="43" selection-start="7714" selection-end="7714" vertical-scroll-proportion="0.4777563">
           <folding />
         </state>
       </provider>

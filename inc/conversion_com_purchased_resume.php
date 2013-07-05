@@ -4,7 +4,7 @@ define('IN_QISHI', true);
 require_once(dirname(__FILE__).'/conversion.inc.php');
 require_once(dirname(__FILE__).'/splitword.class.php');
 
-$module_name="personal_apply_jobs";
+$module_name="company_saved_resumes";
 //http://myconverter.shiyishi.tk/inc/conversion_personal_apply_jobs.php?&time=1372604646462&srcdbhost=localhost&srcdbuser=root&srcdbpass=han1987118&srcdbname=shiphr&srcpre=uchome_&srcdbcharset=GBK&qsdbhost=localhost&qsdbuser=root&qsdbpass=han1987118&qsdbname=ship74cms32&qspre=qs32_
 //
 //尝试锁定当前模块,如果锁文件已经存在，则会终止运行

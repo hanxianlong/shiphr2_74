@@ -95,11 +95,17 @@ $mylogger->put_msg_to_disk($total_msg);
            
             $household_province_id = intval($row['censusprovince']);
             $household_city_id = intval($row['censuscity']);
+            $household_address = '';
             if($household_province_id>0){
                 $household_province = get_area_name($household_province_id);
-                $household_city = get_area_name($household_city_id);
-                $setsqlarr['householdaddress']= $household_province[$lang_type].$household_city[$lang_type];
+                $household_address = $household_province[$lang_type];
             }
+           if($household_city_id>0){
+                $household_city = get_area_name($household_city_id);
+                 $household_address .= $household_city[$lang_type];
+            }
+
+            $setsqlarr['householdaddress']=$household_address;
             $education=get_edu($row['edudegree']);
             
             $setsqlarr['education']=$education['id'];
@@ -122,11 +128,12 @@ $mylogger->put_msg_to_disk($total_msg);
             $setsqlarr['nature_cn']=$job_nature[$lang_type];
             
             $province =  get_area_name($row['hope1province']);
+        if($province>0){
             $city=get_area_name($row['hope1city']);
             $setsqlarr['district']=$province['id'];
             $setsqlarr['sdistrict']=$city['id'];
             $setsqlarr['district_cn']=$province[$lang_type].'/'.$city[$lang_type];
- 
+    }
             $wage=get_wage($row['hopeemolument']);
             $setsqlarr['wage']=$wage['id'];
             $setsqlarr['wage_cn']=$wage[$lang_type];

@@ -194,7 +194,7 @@ while($row = $dbsrc->fetch_array($result))
         $sql_array['company_name'] = $company_title;
         $sql_array['company_uid'] = $company_uid;
         $sql_array['company_id'] = $company_id;
-        
+        $sql_array['apply_addtime'] = $apply_dateline;
         $is_company_viewed = 0;
         if($apply_status!=1)
             $is_company_viewed = 1;

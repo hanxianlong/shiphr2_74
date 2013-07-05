@@ -288,6 +288,10 @@ function get_company_scale($scale_id)
  */
 function get_area_name($area_id){
     global $area_cache;
+
+    if(!array_key_exists($area_id,$area_cache)){
+    //    die($area_id . 'not exists');
+    }
     return $area_cache[$area_id];
 }
 

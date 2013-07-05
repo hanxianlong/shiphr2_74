@@ -102,7 +102,7 @@ require_once(dirname(__FILE__).'/inc/top.php');
   </fieldset>
 </div>
 <div class="butbox">
-<input name="提交" type="submit" value="开始转换"  class="but90" id="sub" />
+<input name="提交" type="submit" value="进行转换"  class="but90" id="sub" />
 </div>
  
  
