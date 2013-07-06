@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f00f2295-5ef7-47a2-9465-b75db4a663d5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/com.css" afterPath="$PROJECT_DIR$/css/com.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion.inc.php" afterPath="$PROJECT_DIR$/inc/conversion.inc.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" afterPath="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" afterPath="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" afterPath="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_resume.php" afterPath="$PROJECT_DIR$/inc/conversion_resume.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/step-2.php" afterPath="$PROJECT_DIR$/step-2.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/top.php" afterPath="$PROJECT_DIR$/inc/top.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inc/conversion_company.php" afterPath="$PROJECT_DIR$/inc/conversion_company.php" />
     </list>
     <ignored path="shiphr2_74.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372986086136" ignored="false" />
+    <file path="/Dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040444653" ignored="false" />
     <file path="/a" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372754384298" ignored="false" />
     <file path="/mylogger.class.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372755964350" ignored="false" />
     <file path="/dummy.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372777769430" ignored="false" />
@@ -27,6 +19,50 @@
     <file path="/step-2.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372986207710" ignored="false" />
     <file path="/conversion_jobs_personal_company_relations.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1372993884193" ignored="false" />
     <file path="/conversion_resume.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373011062947" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/company/company-show.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373049202944" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/explain/explain-show.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/agreement/index.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/api/uc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388296" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/include/admin_common.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/plus.common.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/include/admin_tpl.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/README.md" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/jobs/jobs-list.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/.htaccess" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373047842566" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/template_lite/class.template.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/data/cache_category.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/index.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/74cms_version.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/common.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/tpl.inc.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_ajax.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/robots.txt" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040388641" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_left.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/api/locoyspider.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/common.fun.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373049051266" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/css/date_input.css" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/css/common.css" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_category.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_feedback.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/kindeditor/kindeditor.js" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_database.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040706374" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/statement/userreg_30_days.xml" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/templates/default/sys/admin_main.htm" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/js/FusionCharts.js" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_ad.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373040669715" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/fun_user.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373041449263" ignored="false" />
+    <file path="/.htaccess" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373044068885" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/templates/shiphr/member_company/left.htm" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373042868812" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/user/company/company_promotion.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373042927209" ignored="false" />
+    <file path="/company_promotion.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373042901189" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/admin_company.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373045010738" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/admin/templates/default/company/admin_company_user_edit.htm" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373048829658" ignored="false" />
+    <file path="/admin_company_user_edit.htm" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373048829077" ignored="false" />
+    <file path="/admin_company.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373045008036" ignored="false" />
+    <file path="/company-show.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373049153217" ignored="false" />
+    <file path="/common.fun.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373049029925" ignored="false" />
+    <file path="$PROJECT_DIR$/../74cms_v3.2.20120720/upload/include/template_lite/plugins/function.qishi_company_show.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373048639845" ignored="false" />
+    <file path="/function.qishi_company_show.php" changelist="f00f2295-5ef7-47a2-9465-b75db4a663d5" time="1373047825101" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +85,7 @@
       <file leaf-file-name="step-2.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/step-2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="40" selection-start="3185" selection-end="3185" vertical-scroll-proportion="-7.964286">
+            <state line="104" column="40" selection-start="3185" selection-end="3185" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -58,7 +94,7 @@
       <file leaf-file-name="mylocker.class.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/mylocker.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="6" selection-start="501" selection-end="501" vertical-scroll-proportion="-6.607143">
+            <state line="21" column="6" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,7 +103,7 @@
       <file leaf-file-name="conversion_resume.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/conversion_resume.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="36" selection-start="3778" selection-end="3778" vertical-scroll-proportion="-8.5">
+            <state line="109" column="12" selection-start="4057" selection-end="4057" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -76,7 +112,7 @@
       <file leaf-file-name="conversion_jobs_personal_company_relations.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="43" selection-start="7714" selection-end="7714" vertical-scroll-proportion="0.4777563">
+            <state line="202" column="8" selection-start="7971" selection-end="7971" vertical-scroll-proportion="0.5579598">
               <folding />
             </state>
           </provider>
@@ -85,7 +121,7 @@
       <file leaf-file-name="conversion.inc.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/conversion.inc.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="293" column="5" selection-start="7332" selection-end="7332" vertical-scroll-proportion="-4.75">
+            <state line="297" column="4" selection-start="7374" selection-end="7374" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,12 +155,12 @@
         <option value="$PROJECT_DIR$/inc/top.php" />
         <option value="$PROJECT_DIR$/css/com.css" />
         <option value="$PROJECT_DIR$/step-2.php" />
-        <option value="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
         <option value="$PROJECT_DIR$/inc/conversion_com_purchased_resume.php" />
         <option value="$PROJECT_DIR$/inc/conversion_com_saved_resume.php" />
         <option value="$PROJECT_DIR$/utils/mylocker.class.php" />
         <option value="$PROJECT_DIR$/inc/conversion.inc.php" />
         <option value="$PROJECT_DIR$/inc/conversion_resume.php" />
+        <option value="$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php" />
       </list>
     </option>
   </component>
@@ -132,8 +168,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -177,6 +213,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -185,75 +222,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr2_74" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr2_74" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr2_74" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr2_74" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="converter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shiphr2_74" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -261,13 +231,20 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="preferences.keymap" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="localhost" serverId="df577d8b-c9b1-46e9-920a-b52ab653cde7">
     <servers>
-      <server id="df577d8b-c9b1-46e9-920a-b52ab653cde7">
+      <server id="f74dab27-a83d-48b7-873c-754adf6d1d75">
         <serverdata />
+      </server>
+      <server id="fd35165c-1736-4907-b7dc-46fc8bcf2f21">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
       </server>
     </servers>
   </component>
@@ -321,15 +298,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22727273" sideWeight="0.67132866" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23037323" sideWeight="0.67132866" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -424,114 +401,90 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/top.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="32" selection-start="112" selection-end="115" vertical-scroll-proportion="-2.7142856">
-          <folding />
-        </state>
+        <state line="4" column="32" selection-start="112" selection-end="115" vertical-scroll-proportion="-2.7142856" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/com.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="33" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="16" column="33" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_user_company.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_company.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="41" selection-start="4950" selection-end="4950" vertical-scroll-proportion="-4.785714">
-          <folding />
-        </state>
+        <state line="112" column="41" selection-start="4950" selection-end="4950" vertical-scroll-proportion="-4.785714" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_com_saved_resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="23" selection-start="718" selection-end="718" vertical-scroll-proportion="-11.535714">
-          <folding />
-        </state>
+        <state line="17" column="23" selection-start="718" selection-end="718" vertical-scroll-proportion="-11.535714" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_com_purchased_resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="37" selection-start="201" selection-end="201" vertical-scroll-proportion="0.2410148">
-          <folding />
-        </state>
+        <state line="6" column="37" selection-start="201" selection-end="201" vertical-scroll-proportion="0.2410148" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_generate_data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="56" selection-start="2540" selection-end="2546" vertical-scroll-proportion="0.23232323">
-          <folding />
-        </state>
+        <state line="64" column="56" selection-start="2540" selection-end="2546" vertical-scroll-proportion="0.23232323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/mylocker.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="6" selection-start="501" selection-end="501" vertical-scroll-proportion="-6.607143">
+        <state line="21" column="6" selection-start="501" selection-end="501" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/cateogory_relations_cache.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="12" selection-start="46514" selection-end="46514" vertical-scroll-proportion="0.26868686">
-          <folding />
-        </state>
+        <state line="7" column="12" selection-start="46514" selection-end="46514" vertical-scroll-proportion="0.26868686" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/step-2.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="40" selection-start="3185" selection-end="3185" vertical-scroll-proportion="-7.964286">
+        <state line="104" column="40" selection-start="3185" selection-end="3185" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion.inc.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="293" column="5" selection-start="7332" selection-end="7332" vertical-scroll-proportion="-4.75">
+        <state line="297" column="4" selection-start="7374" selection-end="7374" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_resume.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="36" selection-start="3778" selection-end="3778" vertical-scroll-proportion="-8.5">
+        <state line="109" column="12" selection-start="4057" selection-end="4057" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/step-3.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="159" column="5" selection-start="4963" selection-end="4963" vertical-scroll-proportion="0.48080808">
-          <folding />
-        </state>
+        <state line="159" column="5" selection-start="4963" selection-end="4963" vertical-scroll-proportion="0.48080808" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/inc/conversion_jobs_personal_company_relations.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="43" selection-start="7714" selection-end="7714" vertical-scroll-proportion="0.4777563">
+        <state line="202" column="8" selection-start="7971" selection-end="7971" vertical-scroll-proportion="0.5579598">
           <folding />
         </state>
       </provider>

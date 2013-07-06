@@ -98,7 +98,9 @@ $mylogger = new mylogger($module_name);
                 //refreshtime更新时间没有
 		$setsqlarr['refreshtime']=$setsqlarr['addtime'];
 		$setsqlarr['audit']=COMPANY_DEFAULT_AUDIT;//默认认证状态
-               
+                $setsqlarr['custom_url'] = $row['customurl'];
+                //if(!empty($row['customurl']))
+               // die($row['customurl']);
 		/*
                  $setsqlarr['email']=$row['corpzipcode'];//邮编
 		$setsqlarr['website']=$row['corpfax'];//传真
