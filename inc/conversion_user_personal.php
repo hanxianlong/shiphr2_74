@@ -11,8 +11,8 @@ $watch = new stopwatch();
 $watch->start();
 //个人会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
 	//$sql="select * from `{$srcpre}member` where m_typeid=2";
-        $sql="SELECT s.*,f.email,m.password,(select r.file from `{$srcpre}job_diyresumes` r where r.uid=s.uid limit 1) `resume` from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m where s.uid=f.uid  and m_typeid=1 and s.uid=m.uid and s.groupid=5";
-        $countsql = "select count(*) as total from (SELECT 1 from `{$srcpre}space` s,`{$srcpre}spacefield` f where s.uid=f.uid  and m_typeid=1 and s.groupid=5";
+        $sql="SELECT s.*,f.email/*,m.password*/,(select r.file from `{$srcpre}job_diyresumes` r where r.uid=s.uid limit 1) `resume` from `{$srcpre}space` s,`{$srcpre}spacefield` f/*,`{$srcpre}member` m*/ where s.uid=f.uid and s.usertype='person' /* and s.uid=m.uid*/";
+        $countsql = "select count(*) as total from (SELECT 1 from `{$srcpre}space` s,`{$srcpre}spacefield` f where s.uid=f.uid  and  s.usertype='person' ";
          
         if(isset($_GET['start_id'])){
             $start_id = intval($_GET['start_id']);
@@ -37,7 +37,7 @@ $watch->start();
 	{
             $uid= $row['uid'];
             $username=$row['username'];
-            $password=$row['password'];
+            $password='no password';//$row['password'];
             $passwordtype=1;//当passwordtype为1时，直接保存此字段到数据库中，不进行二次加密。
             $member_type=2;//2为个人会员
             $email=$row['email'];

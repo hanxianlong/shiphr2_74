@@ -1,0 +1,4 @@
+delete from  `uchome_member` where uid>214664;
+delete from  `uchome_space` where uid>214664;
+delete from  `uchome_spacefield` where uid>214664;
+delete from  `uchome_job_resumes` where uid>214664; 

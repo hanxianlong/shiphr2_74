@@ -1,5 +1,6 @@
 <?php
 define('IN_QISHI', true);
+error_reporting(E_ERROR);
 require_once(dirname(__FILE__).'/conversion.inc.php');
 require_once(dirname(__FILE__).'/splitword.class.php');
 $sp = new SPWord();
@@ -165,8 +166,17 @@ while($row = $dbsrc->fetch_array($result))
 
     //companyname直接读取联表后的字段
     $setsqlarr['key']=$setsqlarr['jobs_name'].$row['corptitle'].$setsqlarr['category_cn'].$setsqlarr['district_cn'].$setsqlarr['contents'];
-    $setsqlarr['key']="{$setsqlarr['jobs_name']} {$row['corptitle']} ".$sp->extracttag($setsqlarr['key']);
+ 
+    $key ='';
+    try{
+       $key = $sp->extracttag($setsqlarr['key']);
+    }
+    catch(Exception $e){
+        die('key分词错误：'.$key);
+    }
+    $setsqlarr['key']="{$setsqlarr['jobs_name']} {$row['corptitle']} ".$key;
     $setsqlarr['key']=$sp->pad($setsqlarr['key']);
+    
     $setsqlarr['subsite_id']=0;
 
     //职位模板，直接读取联表后的字段,这些字段在转换时均没有，故可以直接置为0

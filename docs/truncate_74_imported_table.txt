@@ -1,0 +1,47 @@
+
+#清空职位相关表
+truncate table `qs32_jobs_search_rtime`;
+truncate table `qs32_jobs_search_scale`;
+truncate table `qs32_jobs_search_stickrtime`;
+truncate table `qs32_jobs_search_tag`;
+truncate table `qs32_jobs_search_wage`;
+truncate table `qs32_jobs_tmp`;
+
+#
+truncate table `qs32_company_down_resume`;
+
+#清空链接相关表
+truncate table `qs32_link`;
+truncate table `qs32_company_down_resume`;
+truncate table `qs32_company_interview`;
+truncate table `qs32_company_profile`; 
+truncate table `qs32_company_down_resume`;
+
+
+#清空会员相关表
+truncate table `qs32_members`;
+truncate table `qs32_members_handsel`;
+truncate table `qs32_members_info`;
+truncate table `qs32_members_log`;
+truncate table `qs32_members_points`;
+truncate table `qs32_members_setmeal`;
+
+#清空个人收藏及职位申请相关表
+truncate table `qs32_personal_favorites`;
+truncate table `qs32_personal_jobs_apply`;
+#清空推广相关表
+truncate table `qs32_promotion`;
+
+
+
+#清空简历相关表
+truncate table `qs32_resume`;
+truncate table `qs32_resume_education`;
+truncate table `qs32_resume_jobs`;
+truncate table `qs32_resume_search_key`;
+truncate table `qs32_resume_search_rtime`;
+truncate table `qs32_resume_search_tag`;
+truncate table `qs32_resume_tmp`;
+truncate table `qs32_resume_work`;
+truncate table `qs32_resume_education`;
+truncate table `qs32_resume_education`;
