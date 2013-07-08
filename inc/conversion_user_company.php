@@ -13,8 +13,9 @@ $setmeal_cache=array();
         //公司会员信息在uchome_space表中,m_typeid=2为公司会员，m_typeid=1为个人会员
 	//$sql="select * from `{$srcpre}member` where m_typeid=2";
         //公司会员套餐信息如何转换？
-        $sql="SELECT s.*,unix_timestamp(m_startdate) as setmeal_starttime,unix_timestamp(m_enddate) as setmeal_endtime,f.*,m.* from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 and s.uid=m.uid and c.uid=s.uid";
-        $countsql = "select count(*) as total from (SELECT s.* from `{$srcpre}space` s,`{$srcpre}spacefield` f,`{$srcpre}member` m,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 and s.uid=m.uid and c.uid=s.uid";
+        $sql="SELECT s.*,unix_timestamp(m_startdate) as setmeal_starttime,unix_timestamp(m_enddate) as setmeal_endtime,f.*/*,m.**/ from `{$srcpre}space` s,`{$srcpre}spacefield` f,/*`{$srcpre}member` m,*/`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2/* and s.uid=m.uid */and c.uid=s.uid";
+        
+        $countsql = "select count(*) as total from (SELECT s.* from `{$srcpre}space` s,`{$srcpre}spacefield` f/*,`{$srcpre}member` m*/,`{$srcpre}job_company` c where s.uid=f.uid  and m_typeid=2 /*and s.uid=m.uid*/ and c.uid=s.uid";
          
         if(isset($_GET['start_id'])){
             $start_id = intval($_GET['start_id']);
@@ -40,7 +41,7 @@ $setmeal_cache=array();
 		//conversion_register($row['m_login'],$row['m_pwd'],1,1,$row['m_email'],$row['m_loginip'],conversion_datefm($row['m_regdate'],2),$row['m_mobile']);
             $uid= $row['uid'];
             $username=$row['username'];
-            $password=$row['password'];
+            $password='no_password';//$row['password'];
             $passwordtype=1;
             $member_type=1;//1为企业会员
             $email=$row['email'];

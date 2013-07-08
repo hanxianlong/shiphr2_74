@@ -48,11 +48,19 @@ $mylogger = new mylogger($module_name);
                 $setsqlarr['nature']=$nature['id'];
 		$setsqlarr['nature_cn']=$nature['cn'];
               
-		$trade=get_trade($row['industry']);//get_company_trade($row['m_trade']); 
-		$setsqlarr['trade']=$trade['id'];
-		$setsqlarr['trade_cn']=$trade['cn'];
+                $industry_id = $row['industry'];
+                $trade_id = 0;
+                $trade_cn = '';
+                if(!empty($industry_id))
+                {
+                    $trade=get_trade($row['industry']);//get_company_trade($row['m_trade']); 
+                    $trade_id = $trade['id'];
+                    $trade_cn =$trade['cn'];
+                }
+                $setsqlarr['trade']=$trade_id;
+                $setsqlarr['trade_cn']=$trade_cn;
                 
-                	/*
+                /*
 		$cityay=explode('*',$row['m_seat']);
 		$city=get_city($cityay[1]);*/
                 
@@ -72,13 +80,14 @@ $mylogger = new mylogger($module_name);
                  * "3">500-999人
                  * "4">1000人以上
                  */
-                $corpsize = ($row['corpsize']);
+                $corpsize = $row['corpsize'];
+            
 		$scale=get_company_scale($corpsize);//get_company_scale($row['m_workers']);
 		$setsqlarr['scale']=$scale['id'];
 		$setsqlarr['scale_cn']=$scale['cn'];
 		
                 //注册资金在shiphr中没有，不导入。默认为－1
-		$setsqlarr['registered']=-1;//$row['m_fund'];
+		$setsqlarr['registered']=0;//$row['m_fund'];
 		$setsqlarr['currency']="人民币";
 		
 		$setsqlarr['address']=$row['corpaddress'];

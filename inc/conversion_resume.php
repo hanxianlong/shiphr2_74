@@ -149,7 +149,18 @@ $mylogger->put_msg_to_disk($total_msg);
             
             $setsqlarr['trade']=  implode(',', $qs_trade_ids);//期望工作行业
             $setsqlarr['trade_cn']=  implode(',', $qs_trade_names);//期望工作行业
+            $current_position = '';
+            if(!empty($row['position'])){
+                $position = get_trade($row['position']);
+                $current_position = $position[$lang_type];
+            }
             
+            if(!empty($row['subposition'])){
+                 $position = get_trade($row['subposition']);
+                 $current_position .= $position[$lang_type];
+            }
+            
+           $setsqlarr['recentjobs']=$current_position;//当前工作岗位 
             $setsqlarr['intention_jobs']=str_replace('+',',',$row['hopesubposition']);//期待工作岗位
             $intent_jobs_id_array =  explode(",",$row['hopeposition']);//期待工作岗位id,在下面会向resume_jobs表插入这些记录
             $intent_jobs_id_subid_array = array();

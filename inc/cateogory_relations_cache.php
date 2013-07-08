@@ -68,7 +68,8 @@ $area_cache=array ( 1000 => array ( 'id' => '1000', 'cn' => '北京', 'en' => 'Bei
        $setmeal_array = array(4=>1,//免费注册会员
         5=>2,//月度会员
         16=>3,//vip季度会员
-        18=>4,//vip半年会员
+           17=>4,//vip季度会员
+        18=>5,//vip半年会员
         20=>6,//近海版
         21=>7,//远洋版
         22=>8,//近海版季度会员
@@ -136,14 +137,20 @@ shiphr:
  * 3 3年以上
  * 5 5年以上
  * 10 10年以上
+          * 4、9、6、7
           */
           $experience_array = array(
             0=>array('id'=>74,'cn'=>'不限','en'=>'All'),
             1=>array('id'=>75,'cn'=>'一年以上','en'=>'One Year'),
             2=>array('id'=>76,'cn'=>'两年以上','en'=>'Two Years'),
             3=>array('id'=>77,'cn'=>'三年以上','en'=>'Three Years'),
+              4=>array('id'=>77,'cn'=>'三年以上','en'=>'Three Years'),
             5=>array('id'=>78,'cn'=>'五年以上','en'=>'Five Years'),
+              6=>array('id'=>78,'cn'=>'五年以上','en'=>'Five Years'),
+              7=>array('id'=>78,'cn'=>'五年以上','en'=>'Five Years'),
+              
             8=>array('id'=>79,'cn'=>'八年以上','en'=>'Eight Years'),
+              9=>array('id'=>79,'cn'=>'八年以上','en'=>'Eight Years'),
             10=>array('id'=>183,'cn'=>'十年以上','en'=>'Ten Years'),
             ); 
        

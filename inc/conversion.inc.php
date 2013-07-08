@@ -164,6 +164,9 @@ function get_user_inemail($email)
  */
 function get_user_set_meal($srcid){
    global $setmeal_array;
+   if(!array_key_exists($srcid, $setmeal_array)){
+       die("Ì×²Íid²»´æÔÚ£º". $srcid);
+   }
     return $setmeal_array[$srcid];
 }
 
@@ -266,7 +269,16 @@ function get_company_nature($nature_id)
 
 function get_trade($trade_id)
 {
-     global $trade_array;
+   if(empty($trade_id))
+   {
+    return array('id'=>0,'cn'=>'','en'=>'');
+    }
+                
+   global $trade_array;
+   if(!array_key_exists($trade_id, $trade_array)){
+       //die("trade_id not exists:". $trade_id);
+           return array('id'=>0,'cn'=>'','en'=>'');
+   }
     return $trade_array[$trade_id];
 }
 
@@ -278,8 +290,13 @@ function get_trade($trade_id)
  */
 function get_company_scale($scale_id)
 {
+        if($scale_id==50) $scale_id=1;
+                if($scale_id==200) $scale_id=2;
+                if($scale_id==500) $scale_id=3;
+                if($scale_id==1000) $scale_id=4;
+                if(empty($scale_id)) $scale_id = 0;
   global  $scale_array;
-    return $scale_array[$scale_id];
+  return $scale_array[$scale_id];
 }
 
 /**
@@ -349,6 +366,9 @@ function get_jobs_cat($cat_id)
 function get_jobs_nature($nature_id)
 {
    global $job_nature_array;
+      if(!array_key_exists($nature_id, $job_nature_array)){
+       die("job_nature_id not exists:". $nature_id);
+   }
    return $job_nature_array[$nature_id];
 }
 
