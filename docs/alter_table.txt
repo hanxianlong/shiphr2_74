@@ -1,0 +1,5 @@
+alter table `qs32_resume` add (graduate_date datetime,school varchar(255));
+alter table `qs32_resume` modify COLUMN `specialty` MEDIUMTEXT;
+
+alter table `qs32_resume_tmp` add (graduate_date datetime,school varchar(255));
+alter table `qs32_resume_tmp` modify COLUMN `specialty` MEDIUMTEXT;

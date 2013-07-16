@@ -11,7 +11,7 @@ $module_name="resumes";
 mylocker::try_lock_module($module_name);
 $mylogger = new mylogger($module_name);
 
-$sql="select resume.*,space.resume_photo  as resumephoto from `{$srcpre}job_resumes` as resume,`{$srcpre}space` as space where resume.uid=space.uid ";
+$sql="select resume.*,space.resume_photo  as resumephoto from `{$srcpre}job_resumes` as resume,`{$srcpre}space` as space where resume.uid=space.uid and resume.name!='' and resume.birthyear>0";
 $countsql = "select count(*) as total from (select resume.*,space.resume_photo  as resumephoto from `{$srcpre}job_resumes` as resume,`{$srcpre}space` as space where resume.uid=space.uid ";
 
 if(isset($_GET['start_id'])){
@@ -110,6 +110,11 @@ $mylogger->put_msg_to_disk($total_msg);
             
             $setsqlarr['education']=$education['id'];
             $setsqlarr['education_cn']=$education[$lang_type];
+            
+            //74新增毕业学校和毕业时间两字段
+            $setsqlarr['graduate_date']=$row['graduatedate'];
+            $setsqlarr['school']=$row['school'];
+            
             $setsqlarr['tag']='';
             $setsqlarr['telephone']=$row['mophone'];
             $setsqlarr['email']=$row['email'];
@@ -118,7 +123,7 @@ $mylogger->put_msg_to_disk($total_msg);
             $setsqlarr['website']=$row['homepageurl'];
             $setsqlarr['qq']='';
             $setsqlarr['refreshtime']=$row['dateline'];
-            $setsqlarr['display_name']=1;	
+            $setsqlarr['display_name']=3;	//1:显示全名 2：显示简历编号 3：仅显示姓
             $setsqlarr['audit']=1;
             $setsqlarr['talent']=1;
             $setsqlarr['addtime']=$setsqlarr['refreshtime'];
@@ -133,7 +138,7 @@ $mylogger->put_msg_to_disk($total_msg);
             $setsqlarr['district']=$province['id'];
             $setsqlarr['sdistrict']=$city['id'];
             $setsqlarr['district_cn']=$province[$lang_type].'/'.$city[$lang_type];
-    }
+           }
             $wage=get_wage($row['hopeemolument']);
             $setsqlarr['wage']=$wage['id'];
             $setsqlarr['wage_cn']=$wage[$lang_type];

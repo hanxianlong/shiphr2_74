@@ -4,8 +4,14 @@ truncate table `qs32_jobs_search_rtime`;
 truncate table `qs32_jobs_search_scale`;
 truncate table `qs32_jobs_search_stickrtime`;
 truncate table `qs32_jobs_search_tag`;
+truncate table `qs32_jobs_search_key`;
 truncate table `qs32_jobs_search_wage`;
 truncate table `qs32_jobs_tmp`;
+truncate table `qs32_jobs_search_hot`;
+truncate table `qs32_jobs_contact`;
+truncate table `qs32_jobs`;
+
+
 
 #
 truncate table `qs32_company_down_resume`;
@@ -16,6 +22,7 @@ truncate table `qs32_company_down_resume`;
 truncate table `qs32_company_interview`;
 truncate table `qs32_company_profile`; 
 truncate table `qs32_company_down_resume`;
+truncate table `qs32_company_favorites`;
 
 
 #清空会员相关表
@@ -44,4 +51,4 @@ truncate table `qs32_resume_search_tag`;
 truncate table `qs32_resume_tmp`;
 truncate table `qs32_resume_work`;
 truncate table `qs32_resume_education`;
-truncate table `qs32_resume_education`;
+truncate table `qs32_resume_training`;
