@@ -2,7 +2,7 @@
 //header("Content-type: text/html; charset=utf-8"); 
 date_default_timezone_set('Asia/Chongqing');
 header("Content-type:text/html; charset=GB2312");
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 set_time_limit(0);
 @ini_set('memory_limit', '1024M');
 require_once(dirname(__FILE__).'/mysql.class.php');
@@ -307,7 +307,8 @@ function get_area_name($area_id){
     global $area_cache;
 
     if(!array_key_exists($area_id,$area_cache)){
-    //    die($area_id . 'not exists');
+        $default =array ( 'id' => '1000', 'cn' => 'Î´ÖªµØÇø', 'en' => 'Unknown', );
+        return $default;
     }
     return $area_cache[$area_id];
 }
@@ -366,7 +367,7 @@ function get_jobs_cat($cat_id)
 function get_jobs_nature($nature_id)
 {
    global $job_nature_array;
-      if(!array_key_exists($nature_id, $job_nature_array)){
+   if(!array_key_exists($nature_id, $job_nature_array)){
        die("job_nature_id not exists:". $nature_id);
    }
    return $job_nature_array[$nature_id];
@@ -380,6 +381,9 @@ function get_sex($id)
 
 function get_marriage($id){
     global $marriage_array;
+    if(!array_key_exists($id, $marriage_array)){
+        $id=3;
+    }
     return $marriage_array[$id];
 }
 
@@ -414,31 +418,13 @@ function get_experience($exp_id)
  */
 function get_wage($id)
 {
-    global $wage_array;
+   global $wage_array;
+   if(!array_key_exists($id, $wage_array)){
+        $id=0;
+   }
     return $wage_array[$id];
 }
-
-/*
-function conversion_add_resume_jobs($pid,$uid,$str)
-{
-	global $db;
-	$str=trim($str);
-	$arr=explode("-",$str);
-	if (is_array($arr) && !empty($arr))
-	{
-		foreach($arr as $a)
-		{
-                    $a=explode(".",$a);
-                    $setsqlarr['uid']=intval($uid);
-                    $setsqlarr['pid']=intval($pid);
-                    $setsqlarr['category']=intval($a[0]);
-                    $setsqlarr['subclass']=intval($a[1]);
-                    if (!conversion_inserttable(table('resume_jobs'),$setsqlarr))
-                        return false;
-		}
-	}
-}
-*/
+ 
 function conversion_add_resume_jobs($pid,$uid,$id,$sid)
 {
 	global $db; 
