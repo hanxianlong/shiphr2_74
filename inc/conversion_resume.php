@@ -190,11 +190,11 @@ $mylogger->put_msg_to_disk($total_msg);
             $setsqlarr['talent']=1;
             $setsqlarr['click']=$row['viewnum'];
             $setsqlarr['recentjobs']='';//最近工作过的工作
-            $setsqlarr['key']=$setsqlarr['intention_jobs'].$setsqlarr['recentjobs'].$setsqlarr['specialty'];		
+            $setsqlarr['key']=$setsqlarr['intention_jobs'].$setsqlarr['recentjobs'].$setsqlarr['specialty']. $row['education'].$row['work'];		
             $setsqlarr['key']="{$setsqlarr['fullname']} ".$sp->extracttag($setsqlarr['key']);
             $setsqlarr['key']=str_replace(","," ",$setsqlarr['intention_jobs'])." {$setsqlarr['key']} {$setsqlarr['education_cn']}";
             $setsqlarr['key']=$sp->pad($setsqlarr['key']);
-
+ 
             //插入简历表
             conversion_inserttable(table('resume'),$setsqlarr,false,true);
             
